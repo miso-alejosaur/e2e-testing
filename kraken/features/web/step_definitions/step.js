@@ -5,6 +5,10 @@ Given, When('I navigate to page {kraken-string} {kraken-string}', async function
     return await this.driver.url(host+url);
 });
 
+Given, When('I navigate to page {kraken-string} {kraken-string} {kraken-string}', async function (host, url, extra) {
+    return await this.driver.url(host+url+extra);
+});
+
 When('I login with credentials {kraken-string} {kraken-string}', async function (user, pass) {
     let elementUser = await this.driver.$("#ember7");
     await elementUser.setValue(user);
@@ -54,6 +58,20 @@ When('I go to new tag form', async function () {
 When('I create a tag with name {kraken-string}', async function (name) {
     let elementTitle = await this.driver.$("#tag-name");
     await elementTitle.setValue(name);
+});
+
+When('I save the tag', async function () {
+    let saveButton = await this.driver.$(".gh-canvas-header-content > .view-actions > button");
+    await saveButton.click();
+});
+
+When('I choose the tag {kraken-string}', async function (name) {
+    let menuButton = await this.driver.$("button.settings-menu-toggle");
+    await menuButton.click();
+    let tagCombo = await this.driver.$("#tag-input > ul > input.ember-power-select-trigger-multiple-input");
+    await tagCombo.setValue(name);
+    let tagOption = await this.driver.$(".//*//li[text() = '" + name + "']");
+    await tagOption.click();
 });
 
 Then('I check the post name {kraken-string}', async function (name) {
