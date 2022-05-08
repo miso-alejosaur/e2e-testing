@@ -1,7 +1,7 @@
-Feature: Crear un post y que este sea visible para el usuario, editarlo y que el usuario vea las modificaciones
+Feature: Crear un post y que este sea visible para el usuario, despublicarlo y que el usuario no pueda verlo
 
 @user1 @web
-Scenario: Como autor creo un post y lo elimino
+Scenario: Como autor creo un post y lo despublico
     Given I navigate to page "<HOST>" "ghost/#/signin"
     And I login with credentials "<USERNAME>" "<PASSWORD>"
     And I send a signal to user 2 containing "logged"
@@ -24,7 +24,7 @@ Scenario: Como autor creo un post y lo elimino
     Then I send a signal to user 2 containing "post hidden"
 
 @user2 @web
-Scenario: Como usuario verifico que el post esté creado y luego eliminado
+Scenario: Como usuario verifico que el post esté creado y luego desaparezca
     Given I wait for a signal containing "logged" for 30 seconds
     And I wait for a signal containing "creating" for 30 seconds
     And I wait for a signal containing "posting" for 30 seconds
