@@ -1,3 +1,18 @@
+# Funcionalidades y escenarios
+## Funcionalidades
+- Iniciar Sesión
+- Crear Post
+- Editar Post
+- Eliminar Post
+- Ver Post
+- Listar Post
+- Crear Tag
+- Filtrar mediante tags
+- Editar perfil
+
+## Escenarios de pruebas:
+
+
 # Instrucciones para ejecutar tests - Kraken
 ## Instalación - Versión de Ghost
 Para la creación de estos test, se usó la versión 4.42.0 de Ghost; para ejecutar esta versión, ubíquese mediante consola en el directorio donde tenga instalado Ghost, y ejecute los siguientes comandos:
