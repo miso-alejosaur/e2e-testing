@@ -1,4 +1,4 @@
-Feature: Crear un post con tag y que sea filtrable según su tag
+Feature: Crear un post con tag y que sea filtrable según su tag para un usuario
 
 @user3 @web
 Scenario: Como autor creo un tag, y un post con ese tag asignado

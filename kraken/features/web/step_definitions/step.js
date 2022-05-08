@@ -105,6 +105,11 @@ When('I return to posts list', async function () {
     return await returnButton.click();
 });
 
+When('I click on post tag', async function () {
+    let returnButton = await this.driver.$(".article-tag > a");
+    return await returnButton.click();
+});
+
 When('I select the listed post with name {kraken-string}', async function (name) {
     let postItem = await this.driver.$(".//*//ol[contains(@class, 'posts-list')]//*//h3[text() = '" + name + "']");
     return await postItem.click();
@@ -146,7 +151,6 @@ When('I delete the post', async function () {
     let modalButton = await this.driver.$(".modal-content > .modal-footer > .gh-btn-red");
     return await modalButton.click();
 });
-
 
 When('I refresh the site', async function () {
     await this.deviceClient.browser.refresh();

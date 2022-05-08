@@ -1,4 +1,4 @@
-Feature: Crear un post y que este sea visible para el usuario, editarlo y que el usuario vea las modificaciones
+Feature: Crear un post y que este sea visible para el usuario, eliminarlo y que el usuario deje de verlo
 
 @user1 @web
 Scenario: Como autor creo un post y lo elimino
