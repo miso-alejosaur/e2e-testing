@@ -5,10 +5,13 @@ Scenario: Como autor creo un post
     Given I navigate to page "<HOST>" "ghost/#/signin"
     And I login with credentials "<USERNAME>" "<PASSWORD>"
     And I send a signal to user 2 containing "logged"
+    And I wait for 2 seconds
     When I go to new post form
     And I send a signal to user 2 containing "creating"
+    And I wait for 2 seconds
     And I create a post with title "$name_1" and content "$string_1"
     And I send a signal to user 2 containing "posting"
+    And I wait for 2 seconds
     And I post the post
     Then I send a signal to user 2 containing "post created"
 

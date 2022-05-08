@@ -28,6 +28,8 @@ When('I create a post with title {kraken-string} and content {kraken-string}', a
     let elementTitle = await this.driver.$(".gh-editor-title");
     await elementTitle.setValue(title);
     let elementContent = await this.driver.$(".koenig-editor__editor");
+    await elementContent.click();
+    await this.deviceClient.browser.keys(["-"]);
     return await elementContent.setValue(content);
 });
 
@@ -94,6 +96,18 @@ When('I select the listed post with name {kraken-string}', async function (name)
     return await postItem.click();
 });
 
+When('I select the listed tag with name {kraken-string}', async function (name) {
+    let postItem = await this.driver.$(".//*//ol[contains(@class, 'tags-list')]//*//h3[text() = '" + name + "']");
+    return await postItem.click();
+});
+
+When('I delete the tag', async function () {
+    let deleteButton = await this.driver.$("button.gh-btn-red");
+    await deleteButton.click();
+    let modalButton = await this.driver.$(".modal-content > .modal-footer > .gh-btn-red");
+    return await modalButton.click();
+});
+
 When('I choose the tag {kraken-string}', async function (name) {
     let menuButton = await this.driver.$("button.settings-menu-toggle");
     await menuButton.click();
@@ -135,13 +149,17 @@ Then('I check the post content {kraken-string}', async function (content) {
 
 Then('I check the post with name {kraken-string} is listed', async function (name) {
     let postItem = await this.driver.$(".//*//ol[contains(@class, 'posts-list')]//*//h3[text() = '" + name + "']");
-    console.log(postItem)
     return expect(postItem).to.not.be.null;
 });
 
-Then('I check post does not exist', async function () {
+Then('I check page does not exist', async function () {
     let errorCode = await this.driver.$(".error-code").getText();
     expect(errorCode).to.have.string("404");
     let errorDescription = await this.driver.$(".error-description").getText();
     return expect(errorDescription).to.have.string("not found");
+});
+
+Then('I check the post with title {kraken-string} exists', async function (title) {
+    let postItem = await this.driver.$(".//*//h2[text() = '" + title + "']");
+    return expect(postItem).to.not.be.null;
 });

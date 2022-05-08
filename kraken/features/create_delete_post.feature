@@ -39,4 +39,4 @@ Scenario: Como usuario verifico que el post esté creado y luego eliminado
     And I wait for a signal containing "deleting" for 30 seconds
     And I wait for a signal containing "post deleted" for 30 seconds
     Then I refresh the site
-    And I check post does not exist
+    And I check page does not exist
