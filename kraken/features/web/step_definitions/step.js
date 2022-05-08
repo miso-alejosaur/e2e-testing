@@ -73,6 +73,11 @@ When('I go to posts list', async function () {
     return await elementPostsButton.click();
 });
 
+When('I go to drafts', async function () {
+    let elementPostsButton = await this.driver.$(".gh-nav-view-list > a[href='#/posts?type=draft']");
+    return await elementPostsButton.click();
+});
+
 When('I filter posts by tag {kraken-string}', async function (tag) {
     let elementTagsCombo = await this.driver.$(".gh-contentfilter-tag > div > .ember-power-select-selected-item");
     await elementTagsCombo.click();
