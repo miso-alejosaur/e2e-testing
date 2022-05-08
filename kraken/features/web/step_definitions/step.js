@@ -40,6 +40,13 @@ When('I post the post', async function () {
     return await modalButton.click();
 });
 
+When('I update the post', async function () {
+    let publishDropdown = await this.driver.$(".ember-basic-dropdown-trigger");
+    await publishDropdown.click();
+    let publishButton = await this.driver.$(".gh-publishmenu-button");
+    await publishButton.click();
+});
+
 When('I select the post with title {kraken-string}', async function (title) {
     let postItem = await this.driver.$(".//*//h2[text() = '" + title + "']");
     return await postItem.click();
@@ -77,6 +84,16 @@ When('I save the tag', async function () {
     return await saveButton.click();
 });
 
+When('I return to posts list', async function () {
+    let returnButton = await this.driver.$("a.gh-editor-back-button");
+    return await returnButton.click();
+});
+
+When('I select the listed post with name {kraken-string}', async function (name) {
+    let postItem = await this.driver.$(".//*//ol[contains(@class, 'posts-list')]//*//h3[text() = '" + name + "']");
+    return await postItem.click();
+});
+
 When('I choose the tag {kraken-string}', async function (name) {
     let menuButton = await this.driver.$("button.settings-menu-toggle");
     await menuButton.click();
@@ -86,6 +103,17 @@ When('I choose the tag {kraken-string}', async function (name) {
     return await tagOption.click();
 });
 
+When('I change the post content for {kraken-string}', async function (content) {
+    let elementContent = await this.driver.$(".koenig-editor__editor");
+    await elementContent.click();
+    await this.deviceClient.browser.keys(["-"]);
+    return await elementContent.setValue(content);
+});
+
+When('I refresh the site', async function () {
+    await this.deviceClient.browser.refresh();
+});
+
 Then('I check the post name {kraken-string}', async function (name) {
     let postActualName = await this.driver.$(".article-title").getText();
     expect(postActualName).to.equal(name);
@@ -93,7 +121,7 @@ Then('I check the post name {kraken-string}', async function (name) {
 
 Then('I check the post content {kraken-string}', async function (content) {
     let postActualContent = await this.driver.$(".article > .gh-content").getText();
-    expect(postActualContent).to.equal(content);
+    expect(postActualContent).to.have.string(content);
 });
 
 Then('I check the post with name {kraken-string} is listed', async function (name) {
