@@ -35,3 +35,9 @@ Una vez node instale todas las dependencias, ejecute el comando
 node_modules/kraken-node/bin/kraken-node run
 ```
 Verá que comienza la ejecución de las pruebas en Kraken.
+
+# Miembros del equipo
+- Alejandro Santamaría Pérez (a.santamaria11@uniandes.edu.co)
+- Andrés Javier Oviedo Morales (a.oviedom@uniandes.edu.co)
+- Steve Andersson Rojas Hernández
+- Washington Roberto Parra Vásquez 
