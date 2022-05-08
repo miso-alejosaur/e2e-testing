@@ -1,7 +1,7 @@
 Feature: Crear un post y que este sea visible para el usuario, editarlo y que el usuario vea las modificaciones
 
 @user1 @web
-Scenario: Como autor creo un post y lo edito
+Scenario: Como autor creo un post y lo elimino
     Given I navigate to page "<HOST>" "ghost/#/signin"
     And I login with credentials "<USERNAME>" "<PASSWORD>"
     And I send a signal to user 2 containing "logged"
@@ -18,16 +18,13 @@ Scenario: Como autor creo un post y lo edito
     And I wait for a signal containing "checked post" for 30 seconds
     And I return to posts list
     And I select the listed post with name "$$name_1"
-    And I send a signal to user 2 containing "editing"
+    And I send a signal to user 2 containing "deleting"
     And I wait for 2 seconds
-    And I change the post content for "$string_2"
-    And I send a signal to user 2 containing "edited"
-    And I wait for 2 seconds
-    And I update the post
-    Then I send a signal to user 2 containing "post edited"
+    And I delete the post
+    Then I send a signal to user 2 containing "post deleted"
 
 @user2 @web
-Scenario: Como usuario verifico que el post esté creado y la edición sea correcta
+Scenario: Como usuario verifico que el post esté creado y luego eliminado
     Given I wait for a signal containing "logged" for 30 seconds
     And I wait for a signal containing "creating" for 30 seconds
     And I wait for a signal containing "posting" for 30 seconds
@@ -39,8 +36,7 @@ Scenario: Como usuario verifico que el post esté creado y la edición sea corre
     And I check the post name "$$name_1"
     And I check the post content "$$string_1"
     And I send a signal to user 1 containing "checked post"
-    And I wait for a signal containing "editing" for 30 seconds
-    And I wait for a signal containing "edited" for 30 seconds
-    And I wait for a signal containing "post edited" for 30 seconds
+    And I wait for a signal containing "deleting" for 30 seconds
+    And I wait for a signal containing "post deleted" for 30 seconds
     Then I refresh the site
-    And I check the post content "$$string_2"
+    And I check post does not exist

@@ -110,22 +110,38 @@ When('I change the post content for {kraken-string}', async function (content) {
     return await elementContent.setValue(content);
 });
 
+When('I delete the post', async function () {
+    let menuButton = await this.driver.$("button.settings-menu-toggle");
+    await menuButton.click();
+    let deleteButton = await this.driver.$("button.settings-menu-delete-button");
+    await deleteButton.click();
+    let modalButton = await this.driver.$(".modal-content > .modal-footer > .gh-btn-red");
+    return await modalButton.click();
+});
+
 When('I refresh the site', async function () {
     await this.deviceClient.browser.refresh();
 });
 
 Then('I check the post name {kraken-string}', async function (name) {
     let postActualName = await this.driver.$(".article-title").getText();
-    expect(postActualName).to.equal(name);
+    return expect(postActualName).to.equal(name);
 });
 
 Then('I check the post content {kraken-string}', async function (content) {
     let postActualContent = await this.driver.$(".article > .gh-content").getText();
-    expect(postActualContent).to.have.string(content);
+    return expect(postActualContent).to.have.string(content);
 });
 
 Then('I check the post with name {kraken-string} is listed', async function (name) {
     let postItem = await this.driver.$(".//*//ol[contains(@class, 'posts-list')]//*//h3[text() = '" + name + "']");
     console.log(postItem)
-    expect(postItem).to.not.be.null;
+    return expect(postItem).to.not.be.null;
+});
+
+Then('I check post does not exist', async function () {
+    let errorCode = await this.driver.$(".error-code").getText();
+    expect(errorCode).to.have.string("404");
+    let errorDescription = await this.driver.$(".error-description").getText();
+    return expect(errorDescription).to.have.string("not found");
 });
