@@ -7,6 +7,7 @@
 - Ver Post
 - Listar Post
 - Crear Tag
+- Eliminar Tag
 - Filtrar mediante tags
 - Editar perfil
 
