@@ -1,1 +1,1 @@
-# Tests Kraken
+## Instrucciones para ejecutar tests - Kraken
