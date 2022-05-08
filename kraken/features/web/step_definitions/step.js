@@ -95,6 +95,13 @@ When('I create a tag with name {kraken-string}', async function (name) {
     return await elementTitle.setValue(name);
 });
 
+When('I change the profile name for {kraken-string}', async function (name) {
+    let profileName = await this.driver.$("#user-name");
+    await profileName.setValue(name);
+    let saveButton = await this.driver.$(".view-actions > .gh-btn-primary");
+    return await saveButton.click();
+});
+
 When('I save the tag', async function () {
     let saveButton = await this.driver.$(".gh-canvas-header-content > .view-actions > button");
     return await saveButton.click();
@@ -156,6 +163,13 @@ When('I refresh the site', async function () {
     await this.deviceClient.browser.refresh();
 });
 
+When('I go to profile settings', async function () {
+    let profileCombo = await this.driver.$(".pe-all > .ember-basic-dropdown-trigger");
+    await profileCombo.click();
+    let profileButton = await this.driver.$(".//*//ul[contains(@class, 'dropdown-menu')]//*//a[text()[contains(., 'Your profile')]]");
+    return await profileButton.click();
+});
+
 Then('I check the post name {kraken-string}', async function (name) {
     let postActualName = await this.driver.$(".article-title").getText();
     return expect(postActualName).to.equal(name);
@@ -164,6 +178,11 @@ Then('I check the post name {kraken-string}', async function (name) {
 Then('I check the post content {kraken-string}', async function (content) {
     let postActualContent = await this.driver.$(".article > .gh-content").getText();
     return expect(postActualContent).to.have.string(content);
+});
+
+Then('I check the post author is {kraken-string}', async function (content) {
+    let authorName = await this.driver.$(".author-name").getText();
+    return expect(authorName).to.have.string(content);
 });
 
 Then('I check the post with name {kraken-string} is listed', async function (name) {
