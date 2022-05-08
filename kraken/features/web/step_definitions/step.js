@@ -42,6 +42,15 @@ When('I post the post', async function () {
     return await modalButton.click();
 });
 
+When('I unpublish the post', async function () {
+    let publishDropdown = await this.driver.$(".ember-basic-dropdown-trigger");
+    await publishDropdown.click();
+    let unpublishRadio = await this.driver.$(".//*//div[contains(@class, 'gh-publishmenu-radio')]//*//div[text() = 'Unpublished']");
+    await unpublishRadio.click();
+    let publishButton = await this.driver.$(".gh-publishmenu-footer > .gh-publishmenu-button");
+    return await publishButton.click();
+});
+
 When('I update the post', async function () {
     let publishDropdown = await this.driver.$(".ember-basic-dropdown-trigger");
     await publishDropdown.click();
@@ -132,6 +141,7 @@ When('I delete the post', async function () {
     let modalButton = await this.driver.$(".modal-content > .modal-footer > .gh-btn-red");
     return await modalButton.click();
 });
+
 
 When('I refresh the site', async function () {
     await this.deviceClient.browser.refresh();
