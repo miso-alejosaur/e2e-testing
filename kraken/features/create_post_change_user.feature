@@ -24,7 +24,7 @@ Scenario: Como autor creo un post
     Then I send a signal to user 2 containing "edited profile"
 
 @user2 @web
-Scenario: Como usuario verifico que el post esté creado
+Scenario: Como usuario verifico que el post esté creado y el autor tenga el nuevo nombre
     Given I wait for a signal containing "logged" for 30 seconds
     And I wait for a signal containing "creating" for 30 seconds
     And I wait for a signal containing "posting" for 30 seconds
