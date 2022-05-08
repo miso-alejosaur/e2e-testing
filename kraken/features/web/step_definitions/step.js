@@ -51,6 +51,15 @@ When('I unpublish the post', async function () {
     return await publishButton.click();
 });
 
+When('I publish the post', async function () {
+    let publishDropdown = await this.driver.$(".ember-basic-dropdown-trigger");
+    await publishDropdown.click();
+    let publishButton = await this.driver.$(".gh-publishmenu-footer > .gh-publishmenu-button");
+    await publishButton.click();
+    let publishButtonModal = await this.driver.$(".modal-footer > .gh-btn-black");
+    return await publishButtonModal.click();
+});
+
 When('I update the post', async function () {
     let publishDropdown = await this.driver.$(".ember-basic-dropdown-trigger");
     await publishDropdown.click();
@@ -187,7 +196,7 @@ Then('I check the post author is {kraken-string}', async function (content) {
 
 Then('I check the post with name {kraken-string} is listed', async function (name) {
     let postItem = await this.driver.$(".//*//ol[contains(@class, 'posts-list')]//*//h3[text() = '" + name + "']");
-    return expect(postItem).to.not.be.null;
+    return expect(postItem.isExisting()).to.be.true;
 });
 
 Then('I check page does not exist', async function () {
@@ -199,5 +208,10 @@ Then('I check page does not exist', async function () {
 
 Then('I check the post with title {kraken-string} exists', async function (title) {
     let postItem = await this.driver.$(".//*//h2[text() = '" + title + "']");
-    return expect(postItem).to.not.be.null;
+    return expect(postItem.isExisting()).to.be.true;
+});
+
+Then('I check the post with title {kraken-string} does not exist', async function (title) {
+    let postItem = await this.driver.$(".//*//h2[text() = '" + title + "']");
+    return expect(postItem.isExisting()).to.not.be.true;
 });
