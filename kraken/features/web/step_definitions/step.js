@@ -284,3 +284,8 @@ Then('I check the post with title {kraken-string} does not exist', async functio
     let postItem = await this.driver.$(".//*//h2[text() = '" + title + "']");
     return expect(await postItem.isExisting()).to.not.be.true;
 });
+
+Then('I check the tag {kraken-string} does not exist', async function (name) {
+    let postItem = await this.driver.$(".//*//a[text() = '" + name + "']");
+    return expect(await postItem.isExisting()).to.not.be.true;
+});
