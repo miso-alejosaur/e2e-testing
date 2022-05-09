@@ -64,7 +64,7 @@ Una vez node instale todas las dependencias, ejecute el comando
 ```
 npm run test
 ```
-Verá que comienza la ejecución de las pruebas en Kraken.
+Verá que comienza la ejecución de las pruebas en Cypress.
 
 # Miembros del equipo
 - Alejandro Santamaría Pérez (a.santamaria11@uniandes.edu.co)
