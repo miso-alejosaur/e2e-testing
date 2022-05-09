@@ -32,6 +32,7 @@
 17. Crear un tag interno y asignarlo a un nuevo post, filtrar por éste en el listado, y validar que un lector no lo puede utilizar, pero sí un autor.
 18. Crear un tag interno y asignarlo a un nuevo post, y verificar que un lector no lo puede ver al entrar al post.
 19. Crear un post sin tag, revisar que el usuario lector no vea tags en este post, agregar un tag, y revisar que el usuario lector pueda verlo.
+20. Crear un post taggeado, revisar que el usuario lector pueda verlo,eliminar el tag, y revisar que el usuario lector ya no lo vea.
 
 
 # Instrucciones para ejecutar tests - Kraken
