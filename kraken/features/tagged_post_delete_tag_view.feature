@@ -1,4 +1,4 @@
-Feature: Crear un post y que este sea visible para el usuario, eliminar el tag y que no sea posible filtrar por este
+Feature: Crear un post taggeado, revisar que el usuario lector pueda verlo,eliminar el tag, y revisar que el usuario lector ya no lo vea
 
 @user1 @web
 Scenario: Como autor creo un post con tag, luego elimino el tag
@@ -24,7 +24,8 @@ Scenario: Como autor creo un post con tag, luego elimino el tag
     And I post the post
     And I return to posts list
     And I send a signal to user 2 containing "post created"
-    And I wait for a signal containing "checked" for 30 seconds
+    And I wait for a signal containing "checking" for 30 seconds
+    And I wait for a signal containing "checked tagged" for 30 seconds
     And I wait for 1 seconds
     And I navigate to page "<HOST>" "ghost/#/tags"
     And I select the listed tag with name "$$name_2"
@@ -41,12 +42,17 @@ Scenario: Como usuario verifico que el post aparezca al filtrar por tag, y luego
     And I wait for a signal containing "creating post" for 30 seconds
     And I wait for a signal containing "posting" for 30 seconds
     And I wait for a signal containing "post created" for 30 seconds
-    And I navigate to page "<HOST>" "tag/" "$$name_2"
-    And I check the post with title "$$name_3" exists
-    And I send a signal to user 1 containing "checked"
+    And I navigate to page "<HOST>"
+    When I select the post with title "$$name_3"
+    And I check the post name "$$name_3"
+    And I send a signal to user 1 containing "checking"
+    And I wait for 2 seconds
+    And I check the post content "$$string_2"
+    And I check the tag "$$name_2" exists
+    And I send a signal to user 1 containing "checked tagged"
     And I wait for 2 seconds
     And I wait for a signal containing "deleting tag" for 30 seconds
     And I wait for a signal containing "deleted tag" for 30 seconds
-    And I wait for 5 seconds
-    When I refresh the site
-    Then I check page does not exist
+    And I wait for 2 seconds
+    Then I refresh the site
+    And I check the tag "$$name_2" does not exist

@@ -13,6 +13,7 @@ Scenario: Como autor creo un post, y despues le agrego un tag
     And I create a tag with name "$name_1"
     And I save the tag
     And I send a signal to user 2 containing "tag created"
+    And I wait for 2 seconds
     And I go to new post form
     And I send a signal to user 2 containing "creating"
     And I wait for 2 seconds
