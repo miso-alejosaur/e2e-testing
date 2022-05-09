@@ -51,6 +51,32 @@ When('I unpublish the post', async function () {
     return await publishButton.click();
 });
 
+When('I schedule the post', async function () {
+    let publishDropdown = await this.driver.$(".ember-basic-dropdown-trigger");
+    await publishDropdown.click();
+    let unpublishRadio = await this.driver.$(".//*//div[contains(@class, 'gh-publishmenu-radio')]//*//div[text() = 'Schedule it for later']");
+    await unpublishRadio.click();
+    let publishButton = await this.driver.$(".gh-publishmenu-footer > .gh-publishmenu-button");
+    await publishButton.click();
+    let modalPublishButton = await this.driver.$(".modal-footer > .gh-btn-black");
+    return await modalPublishButton.click();
+});
+
+
+When('I publish the scheduled post', async function () {
+    let publishDropdown = await this.driver.$(".ember-basic-dropdown-trigger");
+    await publishDropdown.click();
+    let draftRadio = await this.driver.$(".//*//div[contains(@class, 'gh-publishmenu-radio')]//*//div[text() = 'Revert to draft']");
+    await draftRadio.click();
+    let publishButton = await this.driver.$(".gh-publishmenu-footer > .gh-publishmenu-button");
+    await publishButton.click();
+    await publishDropdown.click();
+    await publishDropdown.click();
+    await publishButton.click();
+    let modalPublishButton = await this.driver.$(".modal-footer > .gh-btn-black");
+    return await modalPublishButton.click();
+});
+
 When('I publish the post', async function () {
     let publishDropdown = await this.driver.$(".ember-basic-dropdown-trigger");
     await publishDropdown.click();
