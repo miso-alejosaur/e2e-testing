@@ -113,6 +113,11 @@ When('I go to drafts', async function () {
     return await elementPostsButton.click();
 });
 
+When('I go to scheduled', async function () {
+    let elementPostsButton = await this.driver.$("a[href='#/posts/?type=scheduled']");
+    return await elementPostsButton.click();
+});
+
 When('I go to published', async function () {
     let elementPostsButton = await this.driver.$("a[href='#/posts/?type=published']");
     return await elementPostsButton.click();

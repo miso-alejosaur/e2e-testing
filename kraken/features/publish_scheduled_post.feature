@@ -1,7 +1,7 @@
-Feature: Crear un post como borrador, revisar que un usuario no puede verlo, publicar el post, y revisarlo desde la vista de usuario
+Feature: Crear un post scheduled, verificar que el usuario lector no lo ve, publicarlo, y revisar que el usuario lector ya lo puede ver
 
 @user1 @web
-Scenario: Como autor creo un post como draft, y después lo publico
+Scenario: Como autor creo un post como scheduled, y después lo publico
     Given I navigate to page "<HOST>" "ghost/#/signin"
     And I login with credentials "<USERNAME>" "<PASSWORD>"
     And I send a signal to user 2 containing "logged"
