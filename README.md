@@ -13,6 +13,23 @@
 
 ## Escenarios de pruebas:
 
+1. Crear un post y que este sea visible para el usuario.
+2. Crear un post con tag y que sea filtrable por el usuario según su tag.
+3. Crear un post con tag, y buscarlo en el listado de administracion filtrando por tag.
+4. Crear un post y que este sea visible para el usuario, editarlo y que el usuario vea las modificaciones.
+5. Crear un post y que este sea visible para el usuario, eliminarlo y que no sea visible para el usuario.
+6. Crear un post y que este sea visible para el usuario, eliminar el tag y que no sea posible filtrar por este.
+7. Crear un post y que este sea visible para el usuario, despublicarlo y que el usuario no pueda verlo.
+8. Crear un post y despublicarlo, revisar que este quede en la sección de drafts.
+9. Crear dos post taggeados, que el usuario acceda a uno, y luego encuentre relacionado el otro mediante el tag del primero.
+10. Crear un post y modificar el nombre de autor, y revisar que el usuario vea el nuevo nombre.
+11. Crear un post como borrador, revisar que el usuario no lo ve, publicar el post, y confirmar desde vista usuario.
+12. Crear un post como borrador, verlo en la lista de borradores, eliminarlo, ver que no esté listado.
+13. Crear un post como publico, ver que no este en la lista de borradores, despublicarlo, y ver que aparezca en la lista de borradores.
+14. Crear un post y modificar el nombre de autor, despues ir a lista de post, filtrar por nombre de usuario, y ver que el post esté listado.
+15. Crear un post scheduled, verificar que el usuario lector no lo ve, publicarlo, y revisar que el usuario lector ya lo puede ver.
+16. Crear un post scheduled, verificar que el usuario lector no lo ve, publicarlo, y revisar que el usuario lector ya lo puede ver.
+
 
 # Instrucciones para ejecutar tests - Kraken
 ## Instalación - Versión de Ghost
