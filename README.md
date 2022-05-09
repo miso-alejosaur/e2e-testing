@@ -18,7 +18,7 @@
 3. Crear un post con tag, y buscarlo en el listado de administracion filtrando por tag.
 4. Crear un post y que este sea visible para el usuario, editarlo y que el usuario vea las modificaciones.
 5. Crear un post y que este sea visible para el usuario, eliminarlo y que no sea visible para el usuario.
-6. Crear un post y que este sea visible para el usuario, eliminar el tag y que no sea posible filtrar por este.
+6. Crear un post taggeado y que este sea visible para el usuario, eliminar el tag y que no sea posible filtrar por este.
 7. Crear un post y que este sea visible para el usuario, despublicarlo y que el usuario no pueda verlo.
 8. Crear un post y despublicarlo, revisar que este quede en la sección de drafts.
 9. Crear dos post taggeados, que el usuario acceda a uno, y luego encuentre relacionado el otro mediante el tag del primero.
