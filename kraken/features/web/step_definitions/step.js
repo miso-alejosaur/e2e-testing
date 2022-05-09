@@ -83,7 +83,7 @@ When('I go to posts list', async function () {
 });
 
 When('I go to drafts', async function () {
-    let elementPostsButton = await this.driver.$(".gh-nav-view-list > a[href='#/posts?type=draft']");
+    let elementPostsButton = await this.driver.$("a[href='#/posts/?type=draft']");
     return await elementPostsButton.click();
 });
 
@@ -196,22 +196,27 @@ Then('I check the post author is {kraken-string}', async function (content) {
 
 Then('I check the post with name {kraken-string} is listed', async function (name) {
     let postItem = await this.driver.$(".//*//ol[contains(@class, 'posts-list')]//*//h3[text() = '" + name + "']");
-    return expect(postItem.isExisting()).to.be.true;
+    return expect(await postItem.isExisting()).to.be.true;
+});
+
+Then('I check the post with name {kraken-string} is not listed', async function (name) {
+    let postItem = await this.driver.$(".//*//ol[contains(@class, 'posts-list')]//*//h3[text() = '" + name + "']");
+    return expect(await postItem.isExisting()).to.not.be.true;
 });
 
 Then('I check page does not exist', async function () {
     let errorCode = await this.driver.$(".error-code").getText();
-    expect(errorCode).to.have.string("404");
+    await expect(errorCode).to.have.string("404");
     let errorDescription = await this.driver.$(".error-description").getText();
     return expect(errorDescription).to.have.string("not found");
 });
 
 Then('I check the post with title {kraken-string} exists', async function (title) {
     let postItem = await this.driver.$(".//*//h2[text() = '" + title + "']");
-    return expect(postItem.isExisting()).to.be.true;
+    return expect(await postItem.isExisting()).to.be.true;
 });
 
 Then('I check the post with title {kraken-string} does not exist', async function (title) {
     let postItem = await this.driver.$(".//*//h2[text() = '" + title + "']");
-    return expect(postItem.isExisting()).to.not.be.true;
+    return expect(await postItem.isExisting()).to.not.be.true;
 });

@@ -36,4 +36,4 @@ Scenario: Como autor 2 inicio sesión y busco los posts que contienen el tag
     And I login with credentials "<USERNAME>" "<PASSWORD>"
     When I go to posts list
     And I filter posts by tag "$$name_1"
-    Then I check the post with name "$$name_1" is listed
+    Then I check the post with name "$$name_2" is listed
