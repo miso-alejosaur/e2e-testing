@@ -129,6 +129,14 @@ When('I filter posts by tag {kraken-string}', async function (tag) {
     let elementTagOption = await this.driver.$(".//*//li[text() = '" + tag + "']");
     return await elementTagOption.click();
 });
+
+When('I filter posts by private tag {kraken-string}', async function (tag) {
+    let elementTagsCombo = await this.driver.$(".gh-contentfilter-tag > div > .ember-power-select-selected-item");
+    await elementTagsCombo.click();
+    let elementTagOption = await this.driver.$(".//*//li[text() = '#" + tag + "']");
+    return await elementTagOption.click();
+});
+
 When('I filter posts by author {kraken-string}', async function (author) {
     let elementAuthorsCombo = await this.driver.$(".gh-contentfilter-author > div > .ember-power-select-selected-item");
     await elementAuthorsCombo.click();
@@ -144,6 +152,11 @@ When('I go to new tag form', async function () {
 When('I create a tag with name {kraken-string}', async function (name) {
     let elementTitle = await this.driver.$("#tag-name");
     return await elementTitle.setValue(name);
+});
+
+When('I create a private tag with name {kraken-string}', async function (name) {
+    let elementTitle = await this.driver.$("#tag-name");
+    return await elementTitle.setValue("#" + name);
 });
 
 When('I change the profile name for {kraken-string}', async function (name) {
@@ -191,6 +204,15 @@ When('I choose the tag {kraken-string}', async function (name) {
     let tagCombo = await this.driver.$("#tag-input > ul > input.ember-power-select-trigger-multiple-input");
     await tagCombo.setValue(name);
     let tagOption = await this.driver.$(".//*//li[text() = '" + name + "']");
+    return await tagOption.click();
+});
+
+When('I choose the private tag {kraken-string}', async function (name) {
+    let menuButton = await this.driver.$("button.settings-menu-toggle");
+    await menuButton.click();
+    let tagCombo = await this.driver.$("#tag-input > ul > input.ember-power-select-trigger-multiple-input");
+    await tagCombo.setValue("#"+name);
+    let tagOption = await this.driver.$(".//*//li[text() = '#" + name + "']");
     return await tagOption.click();
 });
 
