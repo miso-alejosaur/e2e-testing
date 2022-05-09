@@ -1,4 +1,4 @@
-Feature: Crear un tag interno y asignarlo a un nuevo post, filtrar por éste en el listado, y validar que un lector no lo puede utilizar, pero sí un autor
+Feature: Crear un tag interno y asignarlo a un nuevo post, y verificar que un lector no lo puede ver al entrar al post
 
 @user1 @web
 Scenario:  Como autor creo un tag privado, y un post con ese tag asignado
