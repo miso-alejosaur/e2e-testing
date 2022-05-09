@@ -87,10 +87,21 @@ When('I go to drafts', async function () {
     return await elementPostsButton.click();
 });
 
+When('I go to published', async function () {
+    let elementPostsButton = await this.driver.$("a[href='#/posts/?type=published']");
+    return await elementPostsButton.click();
+});
+
 When('I filter posts by tag {kraken-string}', async function (tag) {
     let elementTagsCombo = await this.driver.$(".gh-contentfilter-tag > div > .ember-power-select-selected-item");
     await elementTagsCombo.click();
     let elementTagOption = await this.driver.$(".//*//li[text() = '" + tag + "']");
+    return await elementTagOption.click();
+});
+When('I filter posts by author {kraken-string}', async function (author) {
+    let elementAuthorsCombo = await this.driver.$(".gh-contentfilter-author > div > .ember-power-select-selected-item");
+    await elementAuthorsCombo.click();
+    let elementTagOption = await this.driver.$(".//*//li[text() = '" + author + "']");
     return await elementTagOption.click();
 });
 

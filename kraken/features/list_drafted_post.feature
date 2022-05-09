@@ -1,7 +1,7 @@
 Feature: Crear un post como borrador, verlo en la lista de borradores, eliminarlo, ver que no esté listado
 
 @user1 @web
-Scenario: Como autor creo un post como draft, y después lo publico
+Scenario: Como autor creo un post como público, y después lo despublico, y reviso que aparezca en el listado de drafts
     Given I navigate to page "<HOST>" "ghost/#/signin"
     And I login with credentials "<USERNAME>" "<PASSWORD>"
     When I go to new post form
@@ -16,4 +16,4 @@ Scenario: Como autor creo un post como draft, y después lo publico
     And I unpublish the post
     And I return to posts list
     And I go to drafts
-    And I check the post with name "$$name_1" is listed
+    Then I check the post with name "$$name_1" is listed

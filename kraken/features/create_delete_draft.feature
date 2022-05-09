@@ -11,4 +11,4 @@ Scenario: Como autor creo un post como draft, y después lo publico
     And I check the post with name "$$name_1" is listed
     And I select the listed post with name "$$name_1"
     And I delete the post
-    And I check the post with name "$$name_1" is not listed
+    Then I check the post with name "$$name_1" is not listed
