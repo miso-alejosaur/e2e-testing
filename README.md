@@ -28,7 +28,10 @@
 13. Crear un post como publico, ver que no este en la lista de borradores, despublicarlo, y ver que aparezca en la lista de borradores.
 14. Crear un post y modificar el nombre de autor, despues ir a lista de post, filtrar por nombre de usuario, y ver que el post esté listado.
 15. Crear un post scheduled, verificar que el usuario lector no lo ve, publicarlo, y revisar que el usuario lector ya lo puede ver.
-16. Crear un post scheduled, verificar que el usuario lector no lo ve, publicarlo, y revisar que el usuario lector ya lo puede ver.
+16. Crear un post scheduled, verificar que está en la lista de scheduled, publicarlo, y revisar que ya no aparece en esta lista.
+17. Crear un tag interno y asignarlo a un nuevo post, filtrar por éste en el listado, y validar que un lector no lo puede utilizar, pero sí un autor.
+18. Crear un tag interno y asignarlo a un nuevo post, y verificar que un lector no lo puede ver al entrar al post.
+19. Crear un post sin tag, revisar que el usuario lector no vea tags en este post, agregar un tag, y revisar que el usuario lector pueda verlo.
 
 
 # Instrucciones para ejecutar tests - Kraken
