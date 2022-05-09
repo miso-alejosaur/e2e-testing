@@ -52,15 +52,8 @@ Una vez creado el sitio, ubíquese mediante consola en el directorio `/Cypress` 
 ```
 npm install
 ```
-Una vez node instale todas las dependencias, ejecute el comando 
-```
-npm install cypress --save-dev
-```
-Una vez node instale todas las dependencias, ejecute el comando 
-```
-npm install --save-dev cypress-cucumber-preprocessor
-```
-Una vez node instale todas las dependencias, ejecute el comando 
+Una vez npm instale todas las dependencias, ejecute el comando 
+
 ```
 npm run test
 ```
