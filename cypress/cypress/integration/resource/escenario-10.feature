@@ -1,4 +1,4 @@
-Feature: Escenario 1: Crear Un Nuevo Post y Verificar Su Publicación
+Feature: Escenario 10: Crear Un Nuevo Post - Verificar Su Publicación - Modificar Autor - Verificar El Cambio de Autor
 
     Feature Crear un post y que este sea visible para el usuario
    
@@ -20,6 +20,24 @@ Feature: Escenario 1: Crear Un Nuevo Post y Verificar Su Publicación
             When Hace click al post New-Post
         Then Validar la url del New-Post
         Then Validar titulo del post New-Post
+
+    Scenario: Modificar el nombre del Autor
+        Given Ingresa a la pagina de inicio de sesion
+            When Ingresa el nombre de usuario "test@test.tt" e ingresa la contraseña "1234567890a."
+        Then Iniciar Sesion Exitoso
+
+            When Ingresar al sitio de Author
+            And Hacer click en la lista de autor
+            And Modificar el nombre del author 'New Author'
+            And Hacer click en el boton Save del Author
+        Then Validar el nombre del Author
+
+    Scenario: Verificar el nuevo post publicado con el autor modificado
+        Given Ingresar al sitio
+            When Hace click al post New-Post
+        Then Validar la url del New-Post
+        Then Validar titulo del post New-Post
+        Then Validar el nombre del New Author
 
     Scenario: Eliminar el nuevo post
         Given Ingresa a la pagina de inicio de sesion

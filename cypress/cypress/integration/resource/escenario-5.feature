@@ -1,6 +1,6 @@
-Feature: Escenario 1: Crear Un Nuevo Post y Verificar Su Publicación
+Feature: Escenario 5: Crear Un Nuevo Post - Verificar Su Publicación - Eliminar Post - Verificar que no sea visible
 
-    Feature Crear un post y que este sea visible para el usuario
+    Feature Crear un post, que este sea visible para el usuario, eliminar el post y verificar que no sea visible
    
     Scenario: Crear un nuevo post y publicar post (vista de usuario)
         Given Ingresa a la pagina de inicio de sesion
@@ -32,3 +32,8 @@ Feature: Escenario 1: Crear Un Nuevo Post y Verificar Su Publicación
             And Hace click en el boton delete
             And Hace click en el boton confirmar delete
         Then Validar la url posts
+
+    Scenario: Verificar el nuevo post este eliminado
+        Given Ingresar al sitio home
+            When Ingresar al sitio New-Post eliminado
+        Then Validar titulo del post New-Post eliminado

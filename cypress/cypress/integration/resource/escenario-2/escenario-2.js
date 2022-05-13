@@ -1,7 +1,8 @@
 import { Given, When, And, Then } from "cypress-cucumber-preprocessor/steps";
 const loginPage = require('../../pages/loginPage')
+const newTag = require('../../pages/newTag')
 const newPost = require('../../pages/newPost')
-const checkPost = require('../../pages/checkPost')
+const checkTag = require('../../pages/checkTag')
 
 //Inicio de sesión
 Given('Ingresa a la pagina de inicio de sesion', ()=> {
@@ -16,6 +17,31 @@ Then('Iniciar Sesion Exitoso', ()=>{
     loginPage.checkPage()
 })
 
+//Crear tag
+    When('Hace click en el boton de tag', ()=>{
+        newTag.tagButton()
+    })
+
+        And('Hace click en el boton de new tag', ()=>{
+            newTag.newTagButton()
+        })
+
+        And('Ingresa el nombre del tag {string}', (nametag)=>{
+            newTag.nameInput(nametag)
+        })
+
+        And('Ingresa la descripcion del tag {string}', (texttag)=>{
+            newTag.descriptionInput(texttag)
+        })
+
+        And('Hace click en el boton de save post', ()=>{
+            newTag.saveButton()
+        })
+
+    Then('Validar en la listas de tag el New-tag', ()=>{
+        newTag.labelTag()
+    })
+
 //Crear post
     When('Hace click en el boton de new post', ()=>{
         newPost.newPostButton()
@@ -27,6 +53,15 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
         And('Ingresa la descripcion del post {string}', (textpost)=>{
             newPost.textInput(textpost)
+        })
+
+        And('Hacer click en el boton menu del post', ()=>{
+            newPost.menuPost()
+        })
+
+        And('Selecionar el {string}', (selecttag)=>{
+            newPost.listTag(selecttag)
+            newPost.menuPost()
         })
 
         And('Hace click en el boton de create post', ()=>{
@@ -45,21 +80,21 @@ Then('Iniciar Sesion Exitoso', ()=>{
         newPost.checkMessage()
     })
 
-//Verificar un nuevo post
+//Verificar un nuevo post con el nuevo tag
     Given('Ingresar al sitio', ()=>{
         cy.visit('http://localhost:2368/')
     })
 
     When('Hace click al post New-Post', ()=>{
-        checkPost.postUrl()
+        checkTag.postUrl()
     })
 
     Then('Validar la url del New-Post', ()=>{
-        checkPost.checkUrl()
+        checkTag.checkUrl()
     })
 
     Then('Validar titulo del post New-Post', ()=>{
-        checkPost.labelTitle()
+        checkTag.labelTitle()
     })
 
 //Eliminar el nuevo post
@@ -68,7 +103,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
         cy.visit('/'+'#/posts')
     })
 
-    When('Hacer en la lista de post', ()=>{
+    When('Hacer click en la lista de post', ()=>{
         newPost.labelPost()
     })
 
@@ -83,7 +118,25 @@ Then('Iniciar Sesion Exitoso', ()=>{
     And('Hace click en el boton confirmar delete', ()=>{
         newPost.confirmDeleteButton()
     })
-    
+
     Then('Validar la url posts', ()=>{
         newPost.checkUrl()
+    })
+
+//Eliminar el nuevo tag
+    Given('Ingresar al sitio new tag', ()=>{
+        cy.wait(500)
+        cy.visit('/'+'#/tags/new-tag')
+    })
+
+    When('Hace click en el boton delete tag', ()=>{
+        newTag.deleteButton()
+    })
+
+   And('Hace click en el boton confirmar delete', ()=>{
+        newTag.confirmDeleteButton()
+    })
+
+    Then('Validar la url tags', ()=>{
+        newTag.checkUrl()
     })

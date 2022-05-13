@@ -2,6 +2,7 @@ import { Given, When, And, Then } from "cypress-cucumber-preprocessor/steps";
 const loginPage = require('../../pages/loginPage')
 const newPost = require('../../pages/newPost')
 const checkPost = require('../../pages/checkPost')
+const checkPostDelecte = require('../../pages/checkPostDelete')
 
 //Inicio de sesión
 Given('Ingresa a la pagina de inicio de sesion', ()=> {
@@ -62,7 +63,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
         checkPost.labelTitle()
     })
 
-//Eliminar el nuevo post
+//Despublicar el nuevo post
     Given('Ingresar al sitio posts', ()=>{
         cy.wait(500)
         cy.visit('/'+'#/posts')
@@ -72,18 +73,57 @@ Then('Iniciar Sesion Exitoso', ()=>{
         newPost.labelPost()
     })
 
-    And('Hacer click en menu del post', ()=>{
+    And('Hace click en el boton de update post', ()=>{
+        newPost.createPostButton()
+    })
+
+    And('Hace click en la opcion unpublished', ()=>{
+        newPost.unpublishedButton()
+    })
+
+    And('Hace click en el boton update', ()=>{
+        newPost.publishPostButton()
+    })
+    
+    Then('Validar mensaje de update', ()=>{
+        newPost.checkMessageUpdate()
+    })
+
+//Verificar el nuevo post eliminado
+    Given('Ingresar al sitio home', ()=>{
+        cy.visit('http://localhost:2368/')
+    })
+
+    When('Ingresar al sitio New-Post despublicado', ()=>{
+        cy.visit('/'+'new-post')
+    })
+
+    Then('Validar titulo del post New-Post despublicado', ()=>{
+        checkPostDelecte.labelTitle()
+    })
+
+//Eliminar el nuevo post
+    Given('Ingresar al sitio posts delete', ()=>{
+        cy.wait(500)
+        cy.visit('/'+'#/posts')
+    })
+
+    When('Hacer en la lista de post delete', ()=>{
+        newPost.labelPost()
+    })
+
+    And('Hacer click en menu del post delete', ()=>{
         newPost.menuPost()
     })
 
-    And('Hace click en el boton delete', ()=>{
+    And('Hacer click en el boton delete', ()=>{
         newPost.deleteButton()
     })
 
-    And('Hace click en el boton confirmar delete', ()=>{
+    And('Hacer click en el boton confirmar delete', ()=>{
         newPost.confirmDeleteButton()
     })
     
-    Then('Validar la url posts', ()=>{
+    Then('Validar la url posts delete', ()=>{
         newPost.checkUrl()
     })

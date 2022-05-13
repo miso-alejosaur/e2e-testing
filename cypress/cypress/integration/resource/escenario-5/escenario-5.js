@@ -2,6 +2,7 @@ import { Given, When, And, Then } from "cypress-cucumber-preprocessor/steps";
 const loginPage = require('../../pages/loginPage')
 const newPost = require('../../pages/newPost')
 const checkPost = require('../../pages/checkPost')
+const checkPostDelecte = require('../../pages/checkPostDelete')
 
 //Inicio de sesión
 Given('Ingresa a la pagina de inicio de sesion', ()=> {
@@ -86,4 +87,17 @@ Then('Iniciar Sesion Exitoso', ()=>{
     
     Then('Validar la url posts', ()=>{
         newPost.checkUrl()
+    })
+
+//Verificar un nuevo post eliminado
+    Given('Ingresar al sitio home', ()=>{
+        cy.visit('http://localhost:2368/')
+    })
+
+    When('Ingresar al sitio New-Post eliminado', ()=>{
+        cy.visit('/'+'new-post')
+    })
+
+    Then('Validar titulo del post New-Post eliminado', ()=>{
+        checkPostDelecte.labelTitle()
     })

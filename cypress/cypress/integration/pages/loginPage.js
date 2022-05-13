@@ -3,35 +3,23 @@ class loginPage{
     user = 'test@test.tt';
     pass = '1234567890a.';
     
-    //Constructor de la clase
     elements = {
-        userInput: () => cy.get('#ember7'),
-        passInput: () => cy.get('#ember9'),
-        userButton: () => cy.get('#ember11'),
+        userInput: () => cy.get('.email'),
+        passInput: () => cy.get('.password'),
+        userButton: () => cy.get('.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.js-login-button.ember-view'),
         checkLogin: () => cy.url().should('contains', '/#/dashboard')
     }
 
     //Función de inicar sesión
+    
     singIn = () =>{
-        
-        
-        cy.get(this.userButton).click();
-        cy.url().should('contains', '/#/dashboard');
-    }
-
-    typeUser = () =>{
         this.elements.userInput().clear().type(this.user)
-    }
-
-    typePassword = () =>{
         this.elements.passInput().clear().type(this.pass)
-    }
-
-    clickLogin = () =>{
         this.elements.userButton().click()
     }
 
     checkPage = () =>{
+        cy.wait(1000)
         this.elements.checkLogin()
     }
 
