@@ -1,7 +1,11 @@
 const { After, Before, BeforeStep } = require('@cucumber/cucumber');
 const { WebClient } = require('kraken-node');
+var fs = require('fs');
+
+let stepCount = 0
 
 Before(async function() {
+  stepCount = 0
   this.deviceClient = new WebClient('chrome', {}, this.userId);
   this.driver = await this.deviceClient.startKrakenForUserId(this.userId);
 })
@@ -11,22 +15,15 @@ After(async function() {
 });
 
 BeforeStep(async function(scenario) {
-  console.log(this)
-  let stepName = "";
-  let stepId = scenario.testStepId;
-  console.log(scenario)
-  console.log(stepId)
+  console.log(this);
+  let feature = scenario.pickle.uri.split('/').pop().split('.')[0];
 
-  let allSteps = scenario.pickle.steps;
-  console.log(allSteps)
+  if (!fs.existsSync('./screenshots/' + feature)) {
+    fs.mkdirSync('./screenshots/' + feature, {
+      recursive: true
+    });
+  }
 
-  allSteps.every(step => {
-    if(step.id == stepId){
-      stepName = step.text;
-      return false;
-    }
-    return true;
-  });
-
-  await this.driver.saveScreenshot('./' + stepName + '.png');
+  stepCount += 1;
+  await this.driver.saveScreenshot('./screenshots/' + feature + '/' + stepCount + '.png');
 });
