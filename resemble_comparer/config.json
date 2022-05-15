@@ -1,0 +1,21 @@
+{
+    "v3Directory": "./../kraken/screenshots",
+    "v4Directory": "./../kraken/screenshots",
+    "options":{
+        "output": {
+            "errorColor": {
+                "red": 255,
+                "green": 0,
+                "blue": 0
+            },
+            "errorType": "movement",
+            "largeImageThreshold": 1200,
+            "useCrossOrigin": false,
+            "outputDiff": true
+        },
+        "scaleToSameSize": true,
+        "ignore": "antialiasing"
+    },
+    "viewportHeight":600, 
+    "viewportWidth":800
+}
