@@ -1,1 +1,9 @@
-{}
+{
+    "projectId":"E2E Ghost",
+    "baseUrl": "http://localhost:3001/ghost/",
+    "baseUrl2": "http://localhost:3002/ghost/",
+    "email": "test@test.tt",
+	"password": "1234567890a.",
+    "testFiles": "**/*.feature",
+    "chromeWebSecurity": false
+}
