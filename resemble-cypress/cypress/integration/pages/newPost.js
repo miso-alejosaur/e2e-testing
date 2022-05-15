@@ -1,0 +1,146 @@
+class newPost{
+    // Variables para crear post
+    
+    elements = {
+        newPostButton: () => cy.get('a[title="New post"]'),
+        nameInput: () => cy.get('textarea[placeholder="Post Title"]'),
+        nameInput2: () => cy.get('textarea[placeholder="Post title"]'),
+        textInput: () => cy.get('.koenig-editor__editor'),
+        menuPost: () => cy.get('[title="Settings"]'),
+        menuPost2: () => cy.get('.settings-menu-open'),
+        listTag: () => cy.get('.ember-power-select-trigger-multiple-input').first().type('New-tag{enter}'),
+        listTag2: () => cy.get('.ember-power-select-trigger-multiple-input').first().type('New-tag{enter}'),
+        createPostButton: () => cy.get('.gh-publishmenu'),
+        publishPostButton: () => cy.get('.gh-publishmenu-button'),
+        confirmPostButton: () => cy.get('.gh-btn.gh-btn-black.gh-btn-icon.ember-view'),
+        label: () => cy.get('.gh-notification-title'),
+        postButton: () => cy.get('href="#/posts/"'),
+        labelPost: () => cy.get('h3').contains('New-Post'),
+        labelPost2: () => cy.get('h3').contains('New-Post-2'),
+        labelPostUpdate: () => cy.get('h3').contains('New-Post-Modified'),
+        deleteButton: () => cy.get('.gh-btn.gh-btn-hover-red.gh-btn-icon.settings-menu-delete-button'),
+        confirmDeleteButton: () => cy.get('.gh-btn.gh-btn-red.gh-btn-icon.ember-view'),
+        checkUrl: () => cy.url().should('contains', '#/posts'),
+        unpublishedButton: () => cy.get('.gh-publishmenu-radio-label').first()
+    }
+
+    // Dar click al boton de nuevo post
+    newPostButton = () =>{
+        cy.wait(1000)
+        this.elements.newPostButton().click()
+    }
+
+    // Ingresar el titulo del post
+    nameInput = (namepost) =>{
+        cy.wait(1500)
+        this.elements.nameInput().type(namepost).type(`{enter}`);
+    }
+    nameInput2 = (namepost) =>{
+        cy.wait(1500)
+        this.elements.nameInput2().type(namepost).type(`{enter}`);
+    }
+
+    // Ingresar la descripción del post
+    textInput = (textpost) =>{
+        cy.wait(1500)
+        this.elements.textInput().type(textpost)
+    }
+
+    // Dar click al boton de menu del post
+    menuPost = () =>{
+        cy.wait(1500)
+        this.elements.menuPost().click()
+    }
+
+    // Seleccionar el 'New-Tag'
+    listTag = (selecttag) =>{
+        cy.wait(1000)
+        this.elements.listTag()
+        cy.get('button.close').click()
+    }
+    listTag2 = (selecttag) =>{
+        cy.wait(1000)
+        this.elements.listTag2()
+        cy.get('button[title="Settings"]').click()
+    }
+
+    // Dar click al boton de crear post
+    createPostButton = () =>{
+        cy.wait(3000) 
+        this.elements.createPostButton().click()
+    }
+
+    // Dar click al boton de publicación del post
+    publishPostButton = () =>{
+        cy.wait(1000)
+        this.elements.publishPostButton().click();
+    }
+
+    // Dar click al boton de confirmar publicación del post
+    confirmPostButton = () =>{
+        cy.wait(1000)
+        this.elements.confirmPostButton().click();
+    }
+
+    // Validar mensaje de confirmación
+    checkMessage = () =>{
+        cy.wait(500)
+        this.elements.label().should('have.text', 'Published');
+    }
+
+    // Dar click en la lista de post
+    labelPost = () =>{
+        cy.wait(500)
+        this.elements.labelPost().click()
+    }
+
+    // Dar click en la lista de post 2
+    labelPost2 = () =>{
+        cy.wait(500)
+        this.elements.labelPost2().click()
+    }
+
+    // Dar click en el boton delete
+    deleteButton = () =>{
+        cy.wait(1500)
+        this.elements.deleteButton().click()
+    }
+
+    // Dar click en el boton confirmar delete
+    confirmDeleteButton = () =>{
+        cy.wait(1500)
+        this.elements.confirmDeleteButton().click()
+    }
+
+    // Validar la url #/posts
+    checkUrl = () =>{
+        cy.wait(500)
+        this.elements.checkUrl()
+    }
+
+    // Validar mensaje de modificado
+    checkMessageUpdated = () =>{
+        cy.wait(500)
+        this.elements.label().should('have.text', 'Updated');
+    }
+
+    // Dar click en la lista de post
+    labelPostUpdate = () =>{
+        cy.wait(500)
+        this.elements.labelPostUpdate().click()
+    }
+
+    // Dar click en Unpublished
+    unpublishedButton = () =>{
+        cy.wait(500)
+        this.elements.unpublishedButton().click()
+    }
+
+    // Validar mensaje de update
+    checkMessageUpdate = () =>{
+        cy.wait(500)
+        this.elements.label().should('have.text', 'Saved');
+    }
+}
+
+export default new newPost();
