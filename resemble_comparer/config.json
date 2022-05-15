@@ -1,6 +1,6 @@
 {
-    "v3Directory": "./../kraken/screenshots",
-    "v4Directory": "./../kraken/screenshots",
+    "v3Directory": "./../kraken/3.42/screenshots",
+    "v4Directory": "./../kraken/4.44/screenshots",
     "options":{
         "output": {
             "errorColor": {
