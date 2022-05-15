@@ -2,11 +2,11 @@ class newTag{
     // Variables para crear tag
     
     elements = {
-        tagButton: () => cy.get('.ember-viewember-view [href="#/tags/"]'),
+        tagButton: () => cy.get('a[href="#/tags/"]'),
         newTagButton: () => cy.get('[href="#/tags/new/"]'),
         nameInput: () => cy.get('[name="name"]'),
         descriptionInput: () => cy.get('[name="description"]'),
-        saveButton: () => cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view'),
+        saveButton: () => cy.get('.gh-canvas-header> .view-actions > button'),
         labelTag: () => cy.url().should('contains', '#/tags'),
         deleteButton: () => cy.get('.gh-btn.gh-btn-red.gh-btn-icon'),
         confirmDeleteButton: () => cy.get('.gh-btn.gh-btn-red.gh-btn-icon.ember-view'),
@@ -16,7 +16,8 @@ class newTag{
     // Hace click en el boton de tag
     tagButton = () =>{
         cy.wait(1500)
-        cy.visit('/'+'/#/tags')
+        this.elements.tagButton().click()
+        //cy.visit('/'+'/#/tags')
     }
 
     // Hace click en el boton de new tag

@@ -47,14 +47,14 @@ Then('Iniciar Sesion Exitoso', ()=>{
             cy.screenshot(`08-${versionghost}-CrearPost`)
         })
 
-        And('Hace click en el boton de confirm post', ()=>{
+        /*And('Hace click en el boton de confirm post', ()=>{
             newPost.confirmPostButton()
             cy.screenshot(`09-${versionghost}-CrearPost`)
-        })
+        })*/
 
     Then('Validar el mensaje de confirmacion', ()=>{
         newPost.checkMessage()
-        cy.screenshot(`10-${versionghost}-CrearPost`)
+        cy.screenshot(`09-${versionghost}-CrearPost`)
     })
 
 //Verificar un nuevo post

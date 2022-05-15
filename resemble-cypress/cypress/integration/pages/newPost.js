@@ -55,6 +55,7 @@ class newPost{
     // Dar click al boton de crear post
     createPostButton = () =>{
         cy.wait(1000)
+        cy.get('button.close').click()
         this.elements.createPostButton().click()
     }
 
