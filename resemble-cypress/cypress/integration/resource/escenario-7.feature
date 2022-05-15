@@ -12,7 +12,7 @@ Feature: Escenario 7: Crear Un Nuevo Post - Verificar Su Publicación - Despubli
             And Ingresa la descripcion del post 'Description new post'
             And Hace click en el boton de create post
             And Hace click en el boton de publish post
-            And Hace click en el boton de confirm post
+            #And Hace click en el boton de confirm post
         Then Validar el mensaje de confirmacion
 
     Scenario: Verificar el nuevo post publicado

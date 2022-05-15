@@ -3,10 +3,12 @@ const loginPage = require('../../pages/loginPage')
 const newPost = require('../../pages/newPost')
 const checkPost = require('../../pages/checkPost')
 const checkPostDelecte = require('../../pages/checkPostDelete')
+const baseUrl = Cypress.config("baseUrl")
+const versionghost = Cypress.config("versionghost")
 
 //Inicio de sesión
 Given('Ingresa a la pagina de inicio de sesion', ()=> {
-    cy.visit('/')
+    cy.visit('/ghost')
 })
 
     When('Ingresa el nombre de usuario {string} e ingresa la contraseña {string}', (username,password)=>{
@@ -20,35 +22,42 @@ Then('Iniciar Sesion Exitoso', ()=>{
 //Crear post
     When('Hace click en el boton de new post', ()=>{
         newPost.newPostButton()
+        cy.screenshot(`01-${versionghost}-CrearPostPublicaryDespublicar`)
     })
 
         And('Ingresa el titulo del post {string}', (namepost)=>{
             newPost.nameInput(namepost)
+            cy.screenshot(`02-${versionghost}-CrearPostPublicaryDespublicar`)
         })
 
         And('Ingresa la descripcion del post {string}', (textpost)=>{
             newPost.textInput(textpost)
+            cy.screenshot(`03-${versionghost}-CrearPostPublicaryDespublicar`)
         })
 
         And('Hace click en el boton de create post', ()=>{
             newPost.createPostButton()
+            cy.screenshot(`04-${versionghost}-CrearPostPublicaryDespublicar`)
         })
 
         And('Hace click en el boton de publish post', ()=>{
             newPost.publishPostButton()
+            cy.screenshot(`05-${versionghost}-CrearPostPublicaryDespublicar`)
         })
 
         And('Hace click en el boton de confirm post', ()=>{
             newPost.confirmPostButton()
+            cy.screenshot(`06-${versionghost}-CrearPostPublicaryDespublicar`)
         })
 
     Then('Validar el mensaje de confirmacion', ()=>{
         newPost.checkMessage()
+        cy.screenshot(`07-${versionghost}-CrearPostPublicaryDespublicar`)
     })
 
 //Verificar un nuevo post
     Given('Ingresar al sitio', ()=>{
-        cy.visit('http://localhost:2368/')
+        cy.visit(baseUrl)
     })
 
     When('Hace click al post New-Post', ()=>{
@@ -66,36 +75,43 @@ Then('Iniciar Sesion Exitoso', ()=>{
 //Despublicar el nuevo post
     Given('Ingresar al sitio posts', ()=>{
         cy.wait(500)
-        cy.visit('/'+'#/posts')
+        cy.visit('/'+'ghost/#/posts')
+        cy.screenshot(`08-${versionghost}-CrearPostPublicaryDespublicar`)
     })
 
     When('Hacer en la lista de post', ()=>{
         newPost.labelPost()
+        cy.screenshot(`09-${versionghost}-CrearPostPublicaryDespublicar`)
     })
 
     And('Hace click en el boton de update post', ()=>{
         newPost.createPostButton()
+        cy.screenshot(`10-${versionghost}-CrearPostPublicaryDespublicar`)
     })
 
     And('Hace click en la opcion unpublished', ()=>{
         newPost.unpublishedButton()
+        cy.screenshot(`11-${versionghost}-CrearPostPublicaryDespublicar`)
     })
 
     And('Hace click en el boton update', ()=>{
         newPost.publishPostButton()
+        cy.screenshot(`12-${versionghost}-CrearPostPublicaryDespublicar`)
     })
     
     Then('Validar mensaje de update', ()=>{
         newPost.checkMessageUpdate()
+        cy.screenshot(`13-${versionghost}-CrearPostPublicaryDespublicar`)
     })
 
 //Verificar el nuevo post eliminado
     Given('Ingresar al sitio home', ()=>{
-        cy.visit('http://localhost:2368/')
+        cy.visit(baseUrl)
     })
 
     When('Ingresar al sitio New-Post despublicado', ()=>{
-        cy.visit('/'+'new-post')
+        cy.visit('/'+'ghost/new-post')
+        cy.screenshot(`14-${versionghost}-CrearPostPublicaryDespublicar`)
     })
 
     Then('Validar titulo del post New-Post despublicado', ()=>{
@@ -105,7 +121,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 //Eliminar el nuevo post
     Given('Ingresar al sitio posts delete', ()=>{
         cy.wait(500)
-        cy.visit('/'+'#/posts')
+        cy.visit('/'+'ghost/#/posts')
     })
 
     When('Hacer en la lista de post delete', ()=>{
