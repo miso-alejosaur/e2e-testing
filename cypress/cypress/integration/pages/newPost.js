@@ -19,7 +19,8 @@ class newPost{
         deleteButton: () => cy.get('.gh-btn.gh-btn-hover-red.gh-btn-icon.settings-menu-delete-button'),
         confirmDeleteButton: () => cy.get('.gh-btn.gh-btn-red.gh-btn-icon.ember-view'),
         checkUrl: () => cy.url().should('contains', '#/posts'),
-        unpublishedButton: () => cy.get('.gh-publishmenu-radio-label').first()
+        unpublishedButton: () => cy.get('.gh-publishmenu-radio-label').first(),
+        backPost: () => cy.get('.ember-view.gh-editor-back-button')
     }
 
     // Dar click al boton de nuevo post
@@ -128,6 +129,12 @@ class newPost{
     checkMessageUpdate = () =>{
         cy.wait(500)
         this.elements.label().should('have.text', 'Saved');
+    }
+
+    // Dar click en de back post
+    backPost = () =>{
+        cy.wait(1000)
+        this.elements.backPost().click()
     }
 }
 
