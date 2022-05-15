@@ -79,7 +79,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 //Eliminar el nuevo post
     Given('Ingresar al sitio posts', ()=>{
         cy.wait(500)
-        cy.visit('/'+'#/posts')
+        cy.visit('/'+'ghost/#/posts')
     })
 
     When('Hacer en la lista de post', ()=>{

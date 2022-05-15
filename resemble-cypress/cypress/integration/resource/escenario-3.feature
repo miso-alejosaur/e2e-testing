@@ -26,7 +26,7 @@ Feature: Escenario 3: Crear Un Nuevo Tag y Filtrar Segun su Tag como administrad
             And Selecionar el 'New-Tag'
             And Hace click en el boton de create post
             And Hace click en el boton de publish post
-            And Hace click en el boton de confirm post
+#            And Hace click en el boton de confirm post
         Then Validar el mensaje de confirmacion
         
     Scenario: Filtrar el nuevo post publicado con el nuevo tag

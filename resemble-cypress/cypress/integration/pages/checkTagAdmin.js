@@ -17,7 +17,7 @@ class checkTagAdmin{
 
     // Validar titulo del post 'New-Post'
     labelTitle = () =>{
-        this.elements.labelTitle().should('have.text', '\n                New-Post\n            ');
+        this.elements.labelTitle().should('contain.text', 'New-Post');
     }
 }
 

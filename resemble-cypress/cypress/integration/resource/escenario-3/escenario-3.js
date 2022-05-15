@@ -3,10 +3,12 @@ const loginPage = require('../../pages/loginPage')
 const newTag = require('../../pages/newTag')
 const newPost = require('../../pages/newPost')
 const checkTagAdmin = require('../../pages/checkTagAdmin')
+const baseUrl = Cypress.config("baseUrl")
+const versionghost = Cypress.config("versionghost")
 
 //Inicio de sesión
 Given('Ingresa a la pagina de inicio de sesion', ()=> {
-    cy.visit('/')
+    cy.visit('/ghost')
 })
 
     When('Ingresa el nombre de usuario {string} e ingresa la contraseña {string}', (username,password)=>{
@@ -61,7 +63,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
         And('Selecionar el {string}', (selecttag)=>{
             newPost.listTag(selecttag)
-            newPost.menuPost()
+            //newPost.menuPost()
         })
 
         And('Hace click en el boton de create post', ()=>{
@@ -83,21 +85,24 @@ Then('Iniciar Sesion Exitoso', ()=>{
 //Verificar un nuevo post con el nuevo tag
     Given('Ingresar al sitio del posts para realizar el filtro', ()=>{
         cy.wait(500)
-        cy.visit('/'+'#/posts')
+        cy.visit('/'+'ghost/#/posts')
+        cy.screenshot(`01-${versionghost}-CrearPostconTagyFiltrar`)
     })
 
     When('Hace click al filtro Tag', ()=>{
         checkTagAdmin.filtroTag()
+        cy.screenshot(`02-${versionghost}-CrearPostconTagyFiltrar`)
     })
 
     Then('Validar titulo del post New-Post', ()=>{
         checkTagAdmin.labelTitle()
+        cy.screenshot(`03-${versionghost}-CrearPostconTagyFiltrar`)
     })
 
 //Eliminar el nuevo post
     Given('Ingresar al sitio posts', ()=>{
         cy.wait(500)
-        cy.visit('/'+'#/posts')
+        cy.visit('/'+'ghost/#/posts')
     })
 
     When('Hacer click en la lista de post', ()=>{
@@ -123,7 +128,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 //Eliminar el nuevo tag
     Given('Ingresar al sitio new tag', ()=>{
         cy.wait(500)
-        cy.visit('/'+'#/tags/new-tag')
+        cy.visit('/'+'ghost/#/tags/new-tag')
     })
 
     When('Hace click en el boton delete tag', ()=>{

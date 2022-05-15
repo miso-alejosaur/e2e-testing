@@ -50,12 +50,12 @@ class newPost{
     listTag = (selecttag) =>{
         cy.wait(1000)
         this.elements.listTag()
+        cy.get('button.close').click()
     }
 
     // Dar click al boton de crear post
     createPostButton = () =>{
-        cy.wait(1000)
-        cy.get('button.close').click()
+        cy.wait(1000) 
         this.elements.createPostButton().click()
     }
 

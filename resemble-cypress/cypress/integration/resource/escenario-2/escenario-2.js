@@ -120,7 +120,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 //Eliminar el nuevo post
     Given('Ingresar al sitio posts', ()=>{
         cy.wait(500)
-        cy.visit('/'+'#/posts')
+        cy.visit('/'+'ghost/#/posts')
     })
 
     When('Hacer click en la lista de post', ()=>{
@@ -146,7 +146,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 //Eliminar el nuevo tag
     Given('Ingresar al sitio new tag', ()=>{
         cy.wait(500)
-        cy.visit('/'+'#/tags/new-tag')
+        cy.visit('/'+'ghost/#/tags/new-tag')
     })
 
     When('Hace click en el boton delete tag', ()=>{
