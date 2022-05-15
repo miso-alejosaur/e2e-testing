@@ -2,8 +2,8 @@ class newPost{
     // Variables para crear post
     
     elements = {
-        newPostButton: () => cy.get('[title="New post"]'),
-        nameInput: () => cy.get('[placeholder="Post title"]'),
+        newPostButton: () => cy.get('a[title="New post"]'),
+        nameInput: () => cy.get('textarea[placeholder="Post Title"]'),
         textInput: () => cy.get('.koenig-editor__editor'),
         menuPost: () => cy.get('[title="Settings"]'),
         menuPost2: () => cy.get('.settings-menu-open'),
@@ -31,7 +31,7 @@ class newPost{
     // Ingresar el titulo del post
     nameInput = (namepost) =>{
         cy.wait(1500)
-        this.elements.nameInput().type(namepost)
+        this.elements.nameInput().type(namepost).type(`{enter}`);
     }
 
     // Ingresar la descripción del post

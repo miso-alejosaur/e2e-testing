@@ -6,8 +6,8 @@ class loginPage{
     elements = {
         userInput: () => cy.get('.email'),
         passInput: () => cy.get('.password'),
-        userButton: () => cy.get('.login.gh-btn.gh-btn-login.gh-btn-block.gh-btn-icon.js-login-button.ember-view'),
-        checkLogin: () => cy.url().should('contains', '/#/dashboard')
+        userButton: () => cy.get('.login'),
+        checkLogin: () => cy.url().should('contains', '/#/site')
     }
 
     //Función de inicar sesión
