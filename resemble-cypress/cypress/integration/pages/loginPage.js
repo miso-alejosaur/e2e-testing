@@ -7,7 +7,8 @@ class loginPage{
         userInput: () => cy.get('.email'),
         passInput: () => cy.get('.password'),
         userButton: () => cy.get('.login'),
-        checkLogin: () => cy.url().should('contains', '/#/site')
+        checkLogin: () => cy.url().should('contains', '/#/site'),
+        checkLogin2: () => cy.url().should('contains', '/#/dashboard')
     }
 
     //Función de inicar sesión
@@ -21,6 +22,10 @@ class loginPage{
     checkPage = () =>{
         cy.wait(1000)
         this.elements.checkLogin()
+    }
+    checkPage2 = () =>{
+        cy.wait(1000)
+        this.elements.checkLogin2()
     }
 
 }

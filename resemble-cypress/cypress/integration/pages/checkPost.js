@@ -3,6 +3,7 @@ class checkPost{
     
     elements = {
         postUrl: () => cy.get('[href="/new-post/"]'),
+        postUrl2: () => cy.get('[href="/new-post/"]'),
         labelTitle: () => cy.get('h1'),
         labelAuthor: () => cy.get('a').contains('New Author'),
         checkUrl: () => cy.url().should('contains', '/new-post')

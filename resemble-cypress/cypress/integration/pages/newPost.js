@@ -4,6 +4,7 @@ class newPost{
     elements = {
         newPostButton: () => cy.get('a[title="New post"]'),
         nameInput: () => cy.get('textarea[placeholder="Post Title"]'),
+        nameInput2: () => cy.get('textarea[placeholder="Post title"]'),
         textInput: () => cy.get('.koenig-editor__editor'),
         menuPost: () => cy.get('[title="Settings"]'),
         menuPost2: () => cy.get('.settings-menu-open'),
@@ -32,6 +33,10 @@ class newPost{
     nameInput = (namepost) =>{
         cy.wait(1500)
         this.elements.nameInput().type(namepost).type(`{enter}`);
+    }
+    nameInput2 = (namepost) =>{
+        cy.wait(1500)
+        this.elements.nameInput2().type(namepost).type(`{enter}`);
     }
 
     // Ingresar la descripción del post
