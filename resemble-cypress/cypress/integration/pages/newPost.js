@@ -9,6 +9,7 @@ class newPost{
         menuPost: () => cy.get('[title="Settings"]'),
         menuPost2: () => cy.get('.settings-menu-open'),
         listTag: () => cy.get('.ember-power-select-trigger-multiple-input').first().type('New-tag{enter}'),
+        listTag2: () => cy.get('.ember-power-select-trigger-multiple-input').first().type('New-tag{enter}'),
         createPostButton: () => cy.get('.gh-publishmenu'),
         publishPostButton: () => cy.get('.gh-publishmenu-button'),
         confirmPostButton: () => cy.get('.gh-btn.gh-btn-black.gh-btn-icon.ember-view'),
@@ -57,10 +58,15 @@ class newPost{
         this.elements.listTag()
         cy.get('button.close').click()
     }
+    listTag2 = (selecttag) =>{
+        cy.wait(1000)
+        this.elements.listTag2()
+        cy.get('button[title="Settings"]').click()
+    }
 
     // Dar click al boton de crear post
     createPostButton = () =>{
-        cy.wait(1000) 
+        cy.wait(3000) 
         this.elements.createPostButton().click()
     }
 

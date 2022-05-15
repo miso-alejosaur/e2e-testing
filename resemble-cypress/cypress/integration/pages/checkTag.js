@@ -4,6 +4,7 @@ class checkTag{
     elements = {
         postUrl: () => cy.get('[href="/new-post/"]'),
         labelTitle: () => cy.get('[href="/tag/new-tag/"]'),
+        labelTitle2: () => cy.get('.article-tag > a'),
         //.gh-canvas-header> .view-actions > button
         checkUrl: () => cy.url().should('contains', '/new-post'),
         tagButton: () => cy.get('a').contains('New-Tag'),
@@ -28,6 +29,9 @@ class checkTag{
     labelTitle = () =>{
         this.elements.labelTitle()
         //.should('contain.text', 'New-Tag');
+    }
+    labelTitle2 = () =>{
+        this.elements.labelTitle2().should('contain.text', 'New-Tag');
     }
 
     // Hace click al tag

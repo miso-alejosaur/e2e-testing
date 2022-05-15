@@ -7,6 +7,7 @@ class newTag{
         nameInput: () => cy.get('[name="name"]'),
         descriptionInput: () => cy.get('[name="description"]'),
         saveButton: () => cy.get('.gh-canvas-header> .view-actions > button'),
+        saveButton2: () => cy.get('.gh-canvas-header-content> .view-actions > button'),
         labelTag: () => cy.url().should('contains', '#/tags'),
         deleteButton: () => cy.get('.gh-btn.gh-btn-red.gh-btn-icon'),
         confirmDeleteButton: () => cy.get('.gh-btn.gh-btn-red.gh-btn-icon.ember-view'),
@@ -40,6 +41,9 @@ class newTag{
     // Hace click en el boton de save post
     saveButton = () =>{
         this.elements.saveButton().click();
+    }
+    saveButton2 = () =>{
+        this.elements.saveButton2().click();
     }
 
     // Validar en la listas de tag el New-tag
