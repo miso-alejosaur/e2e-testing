@@ -20,7 +20,10 @@ class newPost{
         confirmDeleteButton: () => cy.get('.gh-btn.gh-btn-red.gh-btn-icon.ember-view'),
         checkUrl: () => cy.url().should('contains', '#/posts'),
         unpublishedButton: () => cy.get('.gh-publishmenu-radio-label').first(),
-        backPost: () => cy.get('.ember-view.gh-editor-back-button')
+        backPost: () => cy.get('.ember-view.gh-editor-back-button'),
+        scheduleButton: () => cy.get('.gh-publishmenu-radio-label').contains('Schedule it for later'),
+        scheduleButton3: () => cy.get('.gh-publishmenu-radio-label').contains('Revert to draft'),
+        scheduleButton2: () => cy.get('.gh-publishmenu-radio-label').contains('Set it live now'),
     }
 
     // Dar click al boton de nuevo post
@@ -133,8 +136,32 @@ class newPost{
 
     // Dar click en de back post
     backPost = () =>{
-        cy.wait(1000)
+        cy.wait(500)
         this.elements.backPost().click()
+    }
+
+    // Dar click en de schedule
+    scheduleButton = () =>{
+        cy.wait(1000)
+        this.elements.scheduleButton().click()
+    }
+
+    // Validar mensaje de confirmación schedule
+    checkMessage2 = () =>{
+        cy.wait(500)
+        this.elements.label().should('have.text', 'Scheduled');
+    }
+
+    // Dar click en de published
+    scheduleButton2 = () =>{
+        cy.wait(1000)
+        this.elements.scheduleButton2().click()
+    }
+
+    // Dar click en de published
+    scheduleButton3 = () =>{
+        cy.wait(1000)
+        this.elements.scheduleButton3().click()
     }
 }
 
