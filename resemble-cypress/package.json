@@ -1,5 +1,5 @@
 {
-  "name": "cucumber-cypress",
+  "name": "cucumber-cypress-resemblejs",
   "version": "1.0.0",
   "description": "Pruebas E2E-VRT",
   "main": "index.js",
