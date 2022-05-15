@@ -32,7 +32,7 @@ async function executeTest() {
 
       console.log(data);
 
-      resultInfo[feature] = {
+      resultInfo[`${feature}-${step}`] = {
         isSameDimensions: data.isSameDimensions,
         dimensionDifference: data.dimensionDifference,
         rawMisMatchPercentage: data.rawMisMatchPercentage,
@@ -47,54 +47,93 @@ async function executeTest() {
         });
       }
 
-      if (!fs.existsSync(`./results/${feature}`)) {
-        fs.mkdirSync(`./results/${feature}`, {
+      if (!fs.existsSync(`./results/${datetime}`)) {
+        fs.mkdirSync(`./results/${datetime}`, {
           recursive: true
         });
       }
-      fs.writeFileSync(`./results/${feature}/compare-${step}.png`, data.getBuffer());
+
+      if (!fs.existsSync(`./results/${datetime}/${feature}`)) {
+        fs.mkdirSync(`./results/${datetime}/${feature}`, {
+          recursive: true
+        });
+      }
+      fs.writeFileSync(`./results/${datetime}/${feature}/compare-${step}.png`, data.getBuffer());
+
+      if (!fs.existsSync(`./results/${datetime}`)) {
+        fs.mkdirSync(`./results/${datetime}`, {
+          recursive: true
+        });
+      }
+      fs.copyFileSync(`${v3Directory}/${feature}/${step}.png`, `./results/${datetime}/${feature}/v3-${step}.png`);
+      fs.copyFileSync(`${v4Directory}/${feature}/${step}.png`, `./results/${datetime}/${feature}/v4-${step}.png`);
     };
   };
-
-  /*
-  
-  
-  
   fs.writeFileSync(`./results/${datetime}/report.html`, createReport(datetime, resultInfo));
   fs.copyFileSync('./index.css', `./results/${datetime}/index.css`);
-  */
+
   console.log('------------------------------------------------------------------------------------')
   console.log("Execution finished. Check the report under the results folder")
   return resultInfo;
 }
 (async () => console.log(await executeTest()))();
 
-function browser(b, info) {
-  return `<div class=" browser" id="test0">
-    <div class=" btitle">
-    <h2>Browser: ${b}</h2>
-    <p>Data: ${JSON.stringify(info)}</p>
-    </div>
-    <div class="imgline">
+function step(f, s, info) {
+  filterInfo = info[`${f}-${s}`]
+
+  let diffHtml = ``;
+  console.log(info)
+  if (filterInfo.misMatchPercentage < 5) {
+    diffHtml = `
+      <div class="imgline">
+      <div class="imgcontainer">
+      <span class="imgname">Diff (less than 5%)</span>
+      <img class="img2" src="./${f}/compare-${s}.png" id="diffImage" label="Diff">
+      </div>
+      </div>`;
+  } else {
+    diffHtml = `
     <div class="imgcontainer">
-    <span class="imgname">Reference</span>
-    <img class="img2" src="before-${b}.png" id="refImage" label="Reference">
+    <span class="imgname">Diff (greather than 5%)</span>
+    <img class="imgfull" src="./${f}/compare-${s}.png" id="diffImage" label="Diff">
+    </div>`
+  }
+  return `
+  
+  <h2>Step: ${s}</h2>
+  <p>Data: ${JSON.stringify(filterInfo)}</p><div class="imgline">
+    <div class="imgcontainer">
+    <span class="imgname">Ghost 3.42</span>
+    <img class="img2" src="./${f}/v3-${s}.png" id="refImage" label="Reference">
     </div>
     <div class="imgcontainer">
-    <span class="imgname">Test</span>
-    <img class="img2" src="after-${b}.png" id="testImage" label="Test">
+    <span class="imgname">Ghost 4.44</span>
+    <img class="img2" src="./${f}/v4-${s}.png" id="testImage" label="Test">
     </div>
     </div>
-    <div class="imgline">
-    <div class="imgcontainer">
-    <span class="imgname">Diff</span>
-    <img class="imgfull" src="./compare-${b}.png" id="diffImage" label="Diff">
-    </div>
-    </div>
+    ${diffHtml}
     </div>`
 }
 
+function feature(f, info) {
+
+  let screenshots = fs.readdirSync(`${v3Directory}/${f}`).map(function (item) {
+    let num = item.split('.')
+    return parseInt(num, 10);
+  });
+  screenshots = screenshots.sort(sorter);
+
+  return `<div class=" browser" id="test0">
+    <div class=" btitle">
+    <h2>Feature: ${f}</h2>
+    </div>
+    ${screenshots.map(s => step(f, s, info))}`
+}
+
 function createReport(datetime, resInfo) {
+
+  let features = fs.readdirSync(v3Directory);
+
   return `
     <html>
     <head>
@@ -103,11 +142,11 @@ function createReport(datetime, resInfo) {
     </head>
     <body>
     <h1>Report for 
-    <a href="${config.url}"> ${config.url}</a>
+    <a></a>
     </h1>
     <p>Executed: ${datetime}</p>
     <div id="visualizer">
-    ${config.browsers.map(b => browser(b, resInfo[b]))}
+    ${features.map(b => feature(b, resInfo))}
     </div>
     </body>
     </html>`
