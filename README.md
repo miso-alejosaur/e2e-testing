@@ -68,7 +68,12 @@ Para la creación de estos test, se usó la versión 3.42.0 de Ghost; para ejecu
 ghost uninstall
 ghost install 3.42.0 -local
 ```
-Cuando la instalación finalice, se iniciará la ejecución de Ghost en `http://localhost:2368`, en caso que inicie en otro puerto o dirección, modifiquelo en el archivo `kraken/properties.json`, en la propiedad HOST.
+Cuando la instalación finalice, se iniciará la ejecución de Ghost en `http://localhost:2368`; por tanto, verá error si ya se está ejecutando la otra versión de Ghost. En este caso, ejecute
+```
+ghost config server.port 2369
+ghost start
+```
+Ghost se iniciará en el puerto 2369. En caso que inicie en otro puerto o dirección, modifiquelo en el archivo `kraken/3.42/properties.json`, en la propiedad HOST.
 
 ## Configuración del sitio
 Ingrese a la url http://localhost:2368/ghost/#/setup (si su instancia de Ghost se ejecutó en otro puerto, úselo); allí encontrará un formulario para crear un nuevo Sitio en ghost. En los campos "Site title" y "Full name" ingrese los datos que desee, en el campo "Email Address" ingrese `test@test.tt`, y en el campo "Password" ingrese `1234567890a.`. Estas son las credenciales configuradas en Kraken; en caso de configurar otra combinación de usuario y contraseña, será necesario que modifique estos datos en el archivo `kraken/properties.json`.
