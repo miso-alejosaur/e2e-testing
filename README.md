@@ -41,10 +41,10 @@
 * Tener instalado Node Version (14.17.0)
 
 ## Instalación - Versión de Ghost
-Para la creación de estos test, se usó la versión 4.44.0 de Ghost; para ejecutar esta versión, ubíquese mediante consola en el directorio donde tenga instalado Ghost, y ejecute los siguientes comandos:
+Para la creación de estos test, se usó la versión 4.44.0 de Ghost y como version anterior se uso la version 3.42.0 ; para ejecutar esta versión, ubíquese mediante consola en el directorio donde tenga instalado Ghost, y ejecute los siguientes comandos:
 ```
 ghost uninstall
-ghost install 4.42.0 -local
+ghost install 4.44.0 -local
 ```
 Cuando la instalación finalice, se iniciará la ejecución de Ghost en `http://localhost:2368`, en caso que inicie en otro puerto o dirección, modifiquelo en el archivo `kraken/properties.json`, en la propiedad HOST.
 ## Configuración del sitio
