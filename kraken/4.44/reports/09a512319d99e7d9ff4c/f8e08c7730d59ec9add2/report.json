@@ -1,0 +1,264 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "crear-dos-post-taggeados,-que-el-usuario-acceda-a-uno,-y-luego-encuentre-relacionado-el-otro-mediante-el-tag-del-primero;como-usuario-verifico-que-el-post-aparezca-al-filtrar-por-tag",
+        "keyword": "Scenario",
+        "line": 38,
+        "name": "Como usuario verifico que el post aparezca al filtrar por tag",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 979000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 39,
+            "name": "I wait for a signal containing \"logged\" for 30 seconds",
+            "match": {
+              "location": "node_modules/kraken-node/lib/steps/both.js:109"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 30158000000,
+              "error_message": "Error: function timed out, ensure the promise resolves within 30000 milliseconds\n    at Timeout._onTimeout (/home/alejosaur/Documentos/semana-5/kraken/4.44/node_modules/@cucumber/cucumber/lib/user_code_runner.js:63:28)\n    at listOnTimeout (internal/timers.js:555:17)\n    at processTimers (internal/timers.js:498:7)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 40,
+            "name": "I wait for a signal containing \"creating tag\" for 30 seconds",
+            "match": {
+              "location": "node_modules/kraken-node/lib/steps/both.js:109"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 41,
+            "name": "I wait for a signal containing \"tag created\" for 30 seconds",
+            "match": {
+              "location": "node_modules/kraken-node/lib/steps/both.js:109"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 42,
+            "name": "I wait for a signal containing \"creating post\" for 30 seconds",
+            "match": {
+              "location": "node_modules/kraken-node/lib/steps/both.js:109"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 43,
+            "name": "I wait for a signal containing \"posting\" for 30 seconds",
+            "match": {
+              "location": "node_modules/kraken-node/lib/steps/both.js:109"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 44,
+            "name": "I wait for a signal containing \"post created\" for 30 seconds",
+            "match": {
+              "location": "node_modules/kraken-node/lib/steps/both.js:109"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 45,
+            "name": "I wait for a signal containing \"creating post2\" for 30 seconds",
+            "match": {
+              "location": "node_modules/kraken-node/lib/steps/both.js:109"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 46,
+            "name": "I wait for a signal containing \"posting2\" for 30 seconds",
+            "match": {
+              "location": "node_modules/kraken-node/lib/steps/both.js:109"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 47,
+            "name": "I wait for a signal containing \"post2 created\" for 30 seconds",
+            "match": {
+              "location": "node_modules/kraken-node/lib/steps/both.js:109"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 48,
+            "name": "I navigate to page \"<HOST>\"",
+            "match": {
+              "location": "node_modules/kraken-node/lib/steps/web.js:41"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 49,
+            "name": "I select the post with title \"$$name_3\"",
+            "match": {
+              "location": "features/web/step_definitions/step.js:96"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 50,
+            "name": "I check the post name \"$$name_3\"",
+            "match": {
+              "location": "features/web/step_definitions/step.js:246"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 51,
+            "name": "I check the post content \"$$string_2\"",
+            "match": {
+              "location": "features/web/step_definitions/step.js:251"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 52,
+            "name": "I click on post tag",
+            "match": {
+              "location": "features/web/step_definitions/step.js:179"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 53,
+            "name": "I check the post with title \"$$name_3\" exists",
+            "match": {
+              "location": "features/web/step_definitions/step.js:278"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 54,
+            "name": "I check the post with title \"$$name_4\" exists",
+            "match": {
+              "location": "features/web/step_definitions/step.js:278"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 101000000
+            },
+            "embeddings": [
+              {
+                "data": "iVBORw0KGgoAAAANSUhEUgAABIQAAALZCAYAAADGEvolAAAAAXNSR0IArs4c6QAAE1ZJREFUeJzt2DEBACAMwDDAv+fhAo4mCnp3z8wsAAAAADLO7wAAAAAA3jKEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAgxhACAAAAiDGEAAAAAGIMIQAAAIAYQwgAAAAg5gKsTAmuBDRiSAAAAABJRU5ErkJggg==",
+                "mime_type": "image/png"
+              }
+            ]
+          }
+        ],
+        "tags": [
+          {
+            "name": "@user2",
+            "line": 37
+          },
+          {
+            "name": "@web",
+            "line": 37
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "crear-dos-post-taggeados,-que-el-usuario-acceda-a-uno,-y-luego-encuentre-relacionado-el-otro-mediante-el-tag-del-primero",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Crear dos post taggeados, que el usuario acceda a uno, y luego encuentre relacionado el otro mediante el tag del primero",
+    "tags": [],
+    "uri": "features/access_tagged_posts.feature"
+  }
+]
