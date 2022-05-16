@@ -51,8 +51,8 @@
 ## Prerequisitos
 * Tener instalado Node Version (14.17.0)
 
-## Instalación - Versión de Ghost
-Para la creación de estos test, se usó la versión 4.44.0 de Ghost y como version anterior se uso la version 3.42.0 ; para ejecutar esta versión, ubíquese mediante consola en el directorio donde tenga instalado Ghost, y ejecute los siguientes comandos:
+## Instalación - Versión de Ghost - Version 4.44.0
+Para la creación de estos test, se usó la versión 4.44.0 de Ghost; para ejecutar esta versión, ubíquese mediante consola en el directorio donde tenga instalado Ghost, y ejecute los siguientes comandos:
 ```
 ghost uninstall
 ghost install 4.44.0 -local
@@ -61,6 +61,41 @@ Cuando la instalación finalice, se iniciará la ejecución de Ghost en `http://
 ## Configuración del sitio
 Ingrese a la url http://localhost:2368/ghost/ (si su instancia de Ghost se ejecutó en otro puerto, úselo); allí encontrará un formulario para crear un nuevo Sitio en ghost. En los campos "Site title" y "Full name" ingrese los datos que desee, en el campo "Email Address" ingrese `test@test.tt`, y en el campo "Password" ingrese `1234567890a.`. Estas son las credenciales configuradas en Kraken; en caso de configurar otra combinación de usuario y contraseña, será necesario que modifique estos datos en el archivo `kraken/properties.json`.
 ![imagen](https://user-images.githubusercontent.com/98656893/167307021-8f72da03-575a-4cdc-89a5-50dcf7e8a2eb.png)
+
+## Instalación - Versión de Ghost - Version 3.42.0
+Para la creación de estos test, se usó la versión 3.42.0 de Ghost; para ejecutar esta versión, ubíquese mediante consola en el directorio donde tenga instalado Ghost, y ejecute los siguientes comandos:
+```
+ghost uninstall
+ghost install 3.42.0 -local
+```
+Cuando la instalación finalice, se iniciará la ejecución de Ghost en `http://localhost:2368`, en caso que inicie en otro puerto o dirección, modifiquelo en el archivo `kraken/properties.json`, en la propiedad HOST.
+
+## Configuración del sitio
+Ingrese a la url http://localhost:2368/ghost/#/setup (si su instancia de Ghost se ejecutó en otro puerto, úselo); allí encontrará un formulario para crear un nuevo Sitio en ghost. En los campos "Site title" y "Full name" ingrese los datos que desee, en el campo "Email Address" ingrese `test@test.tt`, y en el campo "Password" ingrese `1234567890a.`. Estas son las credenciales configuradas en Kraken; en caso de configurar otra combinación de usuario y contraseña, será necesario que modifique estos datos en el archivo `kraken/properties.json`.
+![image](https://user-images.githubusercontent.com/98724802/168516188-defe3153-7ced-40d8-b50c-79936190410d.png)
+
+
+## Instalación - Mediante Docker
+
+Instalación ghost_3.42 mediante los comandos de docker:
+
+```
+docker run -d -e url=http://localhost:3001 -p 3001:2368 --name ghost_3.42 ghost:3.42
+//Esto desplegará en la siguiente dirección la versión de Ghost Admin:
+//Ghost 3.42
+http://localhost:3001/ghost
+```
+Instalación ghost_4.44 mediante los comandos de docker:
+
+```
+docker run -d -e url=http://localhost:3002 -p 3002:2368 --name ghost_4.44.0 ghost:4.44.0
+//Esto desplegará en la siguiente dirección la versión de Ghost Admin:
+//Ghost 4.44.0
+http://localhost:3002/ghost
+````
+Nota: para este caso debe modificar puerto y dirección en el archivo `kraken/properties.json`, en la propiedad HOST
+
+
 ## Ejecución de las pruebas
 Una vez creado el sitio, ubíquese mediante consola en el directorio `/kraken` (perteneciente a este repositorio), y allí ejecute el comando 
 ```
