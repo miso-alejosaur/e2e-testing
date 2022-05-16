@@ -98,7 +98,7 @@ docker run -d -e url=http://localhost:3002 -p 3002:2368 --name ghost_4.44.0 ghos
 //Ghost 4.44.0
 http://localhost:3002/ghost
 ````
-Nota: para este caso debe modificar puerto y dirección en el archivo `kraken/properties.json`, en la propiedad HOST
+Nota: para este caso debe modificar puerto y dirección en el archivo `kraken/3.42/properties.json o kraken/4.44/properties.json` según corresponda, en la propiedad HOST
 
 
 ## Ejecución de las pruebas
@@ -119,7 +119,7 @@ Para la creación de estos test, se usó la versión 4.42.0 de Ghost; para ejecu
 ghost uninstall
 ghost install 4.42.0 -local
 ```
-Cuando la instalación finalice, se iniciará la ejecución de Ghost en `http://localhost:2368`, en caso que inicie en otro puerto o dirección, modifiquelo en el archivo `kraken/properties.json`, en la propiedad HOST.
+Cuando la instalación finalice, se iniciará la ejecución de Ghost en `http://localhost:2368`, en caso que inicie en otro puerto o dirección, modifiquelo en el archivo `kraken/3.42/properties.json o kraken/4.44/properties.json` según corresponda, en la propiedad HOST.
 ## Configuración del sitio
 Ingrese a la url http://localhost:2368/ghost/ (si su instancia de Ghost se ejecutó en otro puerto, úselo); allí encontrará un formulario para crear un nuevo Sitio en ghost. En los campos "Site title" y "Full name" ingrese los datos que desee, en el campo "Email Address" ingrese `test@test.tt`, y en el campo "Password" ingrese `1234567890a.`. Estas son las credenciales configuradas en Cypress; en caso de configurar otra combinación de usuario y contraseña, será necesario que modifique estos datos en el archivo `/Cypress/cypress/resource/login.feature`.
 ![imagen](https://user-images.githubusercontent.com/98656893/167307021-8f72da03-575a-4cdc-89a5-50dcf7e8a2eb.png)
