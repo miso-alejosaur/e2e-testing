@@ -89,29 +89,29 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
         And('Hace click en el boton de confirm post', ()=>{
             newPost.confirmPostButton()
-            cy.screenshot(`escenario-3_${versionghost}_14`)
+            //cy.screenshot(`escenario-3_${versionghost}_14`)
         })
 
     Then('Validar el mensaje de confirmacion', ()=>{
         newPost.checkMessage()
-        cy.screenshot(`escenario-3_${versionghost}_15`)
+        cy.screenshot(`escenario-3_${versionghost}_14`)
     })
 
 //Verificar un nuevo post con el nuevo tag
     Given('Ingresar al sitio del posts para realizar el filtro', ()=>{
         cy.wait(500)
         cy.visit('/'+'ghost/#/posts')
-        cy.screenshot(`escenario-3_${versionghost}_16`)
+        cy.screenshot(`escenario-3_${versionghost}_15`)
     })
 
     When('Hace click al filtro Tag', ()=>{
         checkTagAdmin.filtroTag()
-        cy.screenshot(`escenario-3_${versionghost}_17`)
+        cy.screenshot(`escenario-3_${versionghost}_16`)
     })
 
     Then('Validar titulo del post New-Post', ()=>{
         checkTagAdmin.labelTitle()
-        cy.screenshot(`escenario-3_${versionghost}_18`)
+        cy.screenshot(`escenario-3_${versionghost}_17`)
     })
 
 //Eliminar el nuevo post

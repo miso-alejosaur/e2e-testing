@@ -47,12 +47,12 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
         And('Hace click en el boton de confirm post', ()=>{
             newPost.confirmPostButton()
-            cy.screenshot(`escenario-8_${versionghost}_6`)
+            //cy.screenshot(`escenario-8_${versionghost}_6`)
         })
 
     Then('Validar el mensaje de confirmacion', ()=>{
         newPost.checkMessage()
-        cy.screenshot(`escenario-8_${versionghost}_7`)
+        cy.screenshot(`escenario-8_${versionghost}_6`)
     })
 
 //Verificar un nuevo post
@@ -62,60 +62,60 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     When('Hace click al post New-Post', ()=>{
         checkPost.postUrl()
-        cy.screenshot(`escenario-8_${versionghost}_8`)
+        cy.screenshot(`escenario-8_${versionghost}_7`)
     })
 
     Then('Validar la url del New-Post', ()=>{
         checkPost.checkUrl()
-        cy.screenshot(`escenario-8_${versionghost}_9`)
+        cy.screenshot(`escenario-8_${versionghost}_8`)
     })
 
     Then('Validar titulo del post New-Post', ()=>{
         checkPost.labelTitle()
-        cy.screenshot(`escenario-8_${versionghost}_10`)
+        cy.screenshot(`escenario-8_${versionghost}_9`)
     })
 
 //Despublicar el nuevo post
     Given('Ingresar al sitio posts', ()=>{
         cy.wait(500)
         cy.visit('/'+'ghost/#/posts')
-        cy.screenshot(`escenario-8_${versionghost}_11`)
+        cy.screenshot(`escenario-8_${versionghost}_10`)
     })
 
     When('Hacer en la lista de post', ()=>{
         newPost.labelPost()
-        cy.screenshot(`escenario-8_${versionghost}_12`)
+        cy.screenshot(`escenario-8_${versionghost}_11`)
     })
 
     And('Hace click en el boton de update post', ()=>{
         newPost.createPostButton()
-        cy.screenshot(`escenario-8_${versionghost}_13`)
+        cy.screenshot(`escenario-8_${versionghost}_12`)
     })
 
     And('Hace click en la opcion unpublished', ()=>{
         newPost.unpublishedButton()
-        cy.screenshot(`escenario-8_${versionghost}_14`)
+        cy.screenshot(`escenario-8_${versionghost}_13`)
     })
 
     And('Hace click en el boton update', ()=>{
         newPost.publishPostButton()
-        cy.screenshot(`escenario-8_${versionghost}_15`)
+        cy.screenshot(`escenario-8_${versionghost}_14`)
     })
     
     Then('Validar mensaje de update', ()=>{
         newPost.checkMessageUpdate()
-        cy.screenshot(`escenario-8_${versionghost}_16`)
+        cy.screenshot(`escenario-8_${versionghost}_15`)
     })
 
 //Verificar el nuevo post en el Drafs
     When('Ingresar al sitio Drafts', ()=>{
         checkPostDrafts.draftsButton()
-        cy.screenshot(`escenario-8_${versionghost}_17`)
+        cy.screenshot(`escenario-8_${versionghost}_16`)
     })
 
     Then('Validar titulo del post New-Post Drafts', ()=>{
         checkPostDrafts.labelTitle()
-        cy.screenshot(`escenario-8_${versionghost}_18`)
+        cy.screenshot(`escenario-8_${versionghost}_17`)
     })
 
 //Eliminar el nuevo post

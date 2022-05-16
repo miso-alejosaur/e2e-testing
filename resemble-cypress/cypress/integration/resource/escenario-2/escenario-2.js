@@ -89,28 +89,28 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
         And('Hace click en el boton de confirm post', ()=>{
             newPost.confirmPostButton()
-            cy.screenshot(`escenario-2_${versionghost}_14`)
+            //cy.screenshot(`escenario-2_${versionghost}_14`)
         })
 
     Then('Validar el mensaje de confirmacion', ()=>{
         newPost.checkMessage()
-        cy.screenshot(`escenario-2_${versionghost}_15`)
+        cy.screenshot(`escenario-2_${versionghost}_14`)
     })
 
 //Verificar un nuevo post con el nuevo tag
     Given('Ingresar al sitio', ()=>{
         cy.visit(baseUrl)
-        cy.screenshot(`escenario-2_${versionghost}_16`)
+        cy.screenshot(`escenario-2_${versionghost}_15`)
     })
 
     When('Hace click al post New-Post', ()=>{
         checkTag.postUrl()
-        cy.screenshot(`escenario-2_${versionghost}_17`)
+        cy.screenshot(`escenario-2_${versionghost}_16`)
     })
 
     Then('Validar la url del New-Post', ()=>{
         checkTag.checkUrl()
-        cy.screenshot(`escenario-2_${versionghost}_18`)
+        cy.screenshot(`escenario-2_${versionghost}_17`)
     })
 
     Then('Validar titulo del post New-Post', ()=>{

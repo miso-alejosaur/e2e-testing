@@ -3,7 +3,7 @@ const config = require("./config.json");
 const fs = require('fs');
 
 
-const { viewportHeight, viewportWidth, options, versionGhost1,versionGhost2,fileSpecVersionGhost1,fileSpecVersionGhost2, scenarios } = config;
+const { scenarios, options  } = config;
 
 const directory1 = `./screenshots/v342/`;
 const directory2 = `./screenshots/v444/`;
@@ -67,8 +67,8 @@ function browser(name, takes, info,directory1,directory2){
                 <img class="img2" src=".${directory2}${name}/${name}_after_${realTakes}.png" id="version4-4-0${name}${realTakes}" label="version4-4-0">
               </div>
               <div class="imgcontainer">
-                <span class="imgname">Ghost Version 3.42.5</span>
-                <img class="img2" src=".${directory1}${name}/${name}_before_${realTakes}.png" id="version3-42-5${name}${realTakes}" label="version3-42-5">
+                <span class="imgname">Ghost Version 3.42.0</span>
+                <img class="img2" src=".${directory1}${name}/${name}_before_${realTakes}.png" id="version3-42-5${name}${realTakes}" label="version3-42-0">
               </div>
             </div>
             <div class="imgline">
@@ -93,7 +93,7 @@ function createReport(datetime,resultInfo,directory1,directory2){
         </head>
         <body>
             <h1>Report for 
-                 <a href="${config.url}"> ${config.url}</a>
+            <a></a>
             </h1>
             <p>Executed: ${datetime}</p>
             <div id="visualizer">

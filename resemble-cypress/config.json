@@ -1,12 +1,19 @@
 {
     "v3Directory": "./screenshots/v342",
     "v4Directory": "./screenshots/v444",
+    "scenarios" : [
+        {"name":"escenario-1","takes":10},
+        {"name":"escenario-2","takes":17},
+        {"name":"escenario-3","takes":17},
+        {"name":"escenario-7","takes":19},
+        {"name":"escenario-8","takes":17}
+    ],
     "options":{
         "output": {
             "errorColor": {
                 "red": 255,
                 "green": 0,
-                "blue": 0
+                "blue": 255
             },
             "errorType": "movement",
             "largeImageThreshold": 1200,
