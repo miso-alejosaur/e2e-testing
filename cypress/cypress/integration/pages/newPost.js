@@ -7,7 +7,7 @@ class newPost{
         textInput: () => cy.get('.koenig-editor__editor'),
         menuPost: () => cy.get('[title="Settings"]'),
         menuPost2: () => cy.get('.settings-menu-open'),
-        listTag: () => cy.get('.ember-power-select-trigger-multiple-input').first().type('New-tag{enter}'),
+        listTag: () => cy.get('.ember-power-select-trigger-multiple-input'),
         createPostButton: () => cy.get('.gh-publishmenu'),
         publishPostButton: () => cy.get('.gh-publishmenu-button'),
         confirmPostButton: () => cy.get('.gh-btn.gh-btn-black.gh-btn-icon.ember-view'),
@@ -53,7 +53,7 @@ class newPost{
     // Seleccionar el 'New-Tag'
     listTag = (selecttag) =>{
         cy.wait(1000)
-        this.elements.listTag()
+        this.elements.listTag().first().type(selecttag+'{enter}')
     }
 
     // Dar click al boton de crear post
