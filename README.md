@@ -101,8 +101,8 @@ http://localhost:3002/ghost
 Nota: para este caso debe modificar puerto y dirección en el archivo `kraken/3.42/properties.json o kraken/4.44/properties.json` según corresponda, en la propiedad HOST
 
 
-## Ejecución de las pruebas
-Una vez creado el sitio, ubíquese mediante consola en el directorio `/kraken` (perteneciente a este repositorio), y allí ejecute el comando 
+## Ejecución de las pruebas y ubicación de los screenshots
+Una vez creado el sitio, ubíquese mediante consola en el directorio `/kraken/3.42 o /kraken/4.44` (perteneciente a este repositorio, según corresponda), y allí ejecute el comando 
 ```
 npm install
 ```
