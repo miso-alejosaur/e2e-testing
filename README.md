@@ -82,6 +82,7 @@ Ingrese a la url http://localhost:2368/ghost/#/setup (si su instancia de Ghost s
 
 ## Instalación - Mediante Docker
 
+En caso que prefiera ejecutar ghost mediante docker, siga estas instrucciones; de lo contrario, ignore esta sección.
 Instalación ghost_3.42 mediante los comandos de docker:
 
 ```
@@ -111,6 +112,17 @@ Una vez node instale todas las dependencias, ejecute el comando
 node_modules/kraken-node/bin/kraken-node run
 ```
 Verá que comienza la ejecución de las pruebas en Kraken. Tras la finalización de la ejecución, verá dentro de la carpeta `screenshots`, los pantallazos tomados por Kraken para cada uno de los pasos, en cada uno de los escenarios.
+
+## Comparación de screenshots
+Para comparar los screenshots generados en los escenarios de las dos versiones, ubíquese en el directorio `/resemble_compare`r Dentro del archivo `config.json` asegúrese que los valores de `v3Directory` y `v4Directory` coincidan con la ubicación de los screenshots que desea comparar (por defecto apuntan a la ubicación de los pantallazos generados por kraken para las dos versiones de ghost usadas); si no coinciden, modifíquelos para que sean coincidentes. Tras esto, ejecute en consola en consola los comandos:
+
+``` 
+npm install
+node index.js
+```
+Esto ejecutará resemble, y creará un reporte con las diferencias encontradas entre los pantallazos dentro de la carpeta results, en un subdirectorio creado según la fecha y hora de ejecución. Dentro del repositorio podrá encontrar el último reporte generado por el equipo tras ejecutar las pruebas (`resemble_comparer/results/2022-05-16T04.15.18.653Z/report.html`).
+
+![imagen](https://user-images.githubusercontent.com/98656893/168519574-3bac86ae-cc2f-40cd-86a0-e14a0fb18aec.png)
 
 # Instrucciones para ejecutar tests - Cypress
 ## Instalación - Versión de Ghost
