@@ -146,6 +146,10 @@ Una vez npm instale todas las dependencias, ejecute el comando
 npm run test
 ```
 Verá que comienza la ejecución de las pruebas en Cypress.
+## Ubicación de los screenshots
+
+```
+e2e-testing/cypress/cypress/screenshots/resource
 
 # Miembros del equipo
 - Alejandro Santamaría Pérez (a.santamaria11@uniandes.edu.co)
