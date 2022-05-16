@@ -22,81 +22,96 @@ Then('Iniciar Sesion Exitoso', ()=>{
 //Crear tag
     When('Hace click en el boton de tag', ()=>{
         newTag.tagButton()
+        cy.screenshot(`escenario-3_${versionghost}_1`)
     })
 
         And('Hace click en el boton de new tag', ()=>{
             newTag.newTagButton()
+            cy.screenshot(`escenario-3_${versionghost}_2`)
         })
 
         And('Ingresa el nombre del tag {string}', (nametag)=>{
             newTag.nameInput(nametag)
+            cy.screenshot(`escenario-3_${versionghost}_3`)
         })
 
         And('Ingresa la descripcion del tag {string}', (texttag)=>{
             newTag.descriptionInput(texttag)
+            cy.screenshot(`escenario-3_${versionghost}_4`)
         })
 
         And('Hace click en el boton de save post', ()=>{
             newTag.saveButton()
+            cy.screenshot(`escenario-3_${versionghost}_5`)
         })
 
     Then('Validar en la listas de tag el New-tag', ()=>{
         newTag.labelTag()
+        cy.screenshot(`escenario-3_${versionghost}_6`)
     })
 
 //Crear post
     When('Hace click en el boton de new post', ()=>{
         newPost.newPostButton()
+        cy.screenshot(`escenario-3_${versionghost}_7`)
     })
 
         And('Ingresa el titulo del post {string}', (namepost)=>{
             newPost.nameInput(namepost)
+            cy.screenshot(`escenario-3_${versionghost}_8`)
         })
 
         And('Ingresa la descripcion del post {string}', (textpost)=>{
             newPost.textInput(textpost)
+            cy.screenshot(`escenario-3_${versionghost}_9`)
         })
 
         And('Hacer click en el boton menu del post', ()=>{
             newPost.menuPost()
+            cy.screenshot(`escenario-3_${versionghost}_10`)
         })
 
         And('Selecionar el {string}', (selecttag)=>{
             newPost.listTag(selecttag)
+            cy.screenshot(`escenario-3_${versionghost}_11`)
             //newPost.menuPost()
         })
 
         And('Hace click en el boton de create post', ()=>{
             newPost.createPostButton()
+            cy.screenshot(`escenario-3_${versionghost}_12`)
         })
 
         And('Hace click en el boton de publish post', ()=>{
             newPost.publishPostButton()
+            cy.screenshot(`escenario-3_${versionghost}_13`)
         })
 
         And('Hace click en el boton de confirm post', ()=>{
             newPost.confirmPostButton()
+            cy.screenshot(`escenario-3_${versionghost}_14`)
         })
 
     Then('Validar el mensaje de confirmacion', ()=>{
         newPost.checkMessage()
+        cy.screenshot(`escenario-3_${versionghost}_15`)
     })
 
 //Verificar un nuevo post con el nuevo tag
     Given('Ingresar al sitio del posts para realizar el filtro', ()=>{
         cy.wait(500)
         cy.visit('/'+'ghost/#/posts')
-        cy.screenshot(`01-${versionghost}-CrearPostconTagyFiltrar`)
+        cy.screenshot(`escenario-3_${versionghost}_16`)
     })
 
     When('Hace click al filtro Tag', ()=>{
         checkTagAdmin.filtroTag()
-        cy.screenshot(`02-${versionghost}-CrearPostconTagyFiltrar`)
+        cy.screenshot(`escenario-3_${versionghost}_17`)
     })
 
     Then('Validar titulo del post New-Post', ()=>{
         checkTagAdmin.labelTitle()
-        cy.screenshot(`03-${versionghost}-CrearPostconTagyFiltrar`)
+        cy.screenshot(`escenario-3_${versionghost}_18`)
     })
 
 //Eliminar el nuevo post

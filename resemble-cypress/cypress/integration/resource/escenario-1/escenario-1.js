@@ -8,43 +8,43 @@ const versionghost = Cypress.config("versionghost")
 //Inicio de sesión
 Given('Ingresa a la pagina de inicio de sesion', ()=> {
     cy.visit('/ghost/')
-    cy.screenshot(`01-${versionghost}-CrearPost`)
+    cy.screenshot(`escenario-1_${versionghost}_1`)
 })
 
     When('Ingresa el nombre de usuario {string} e ingresa la contraseña {string}', (username,password)=>{
         loginPage.singIn()
-        cy.screenshot(`02-${versionghost}-CrearPost`)
+        cy.screenshot(`escenario-1_${versionghost}_2`)
     })
 
 Then('Iniciar Sesion Exitoso', ()=>{
     loginPage.checkPage()
-    cy.screenshot(`03-${versionghost}-CrearPost`)
+    cy.screenshot(`escenario-1_${versionghost}_3`)
 })
 
 //Crear post
     When('Hace click en el boton de new post', ()=>{
         newPost.newPostButton()
-        cy.screenshot(`04-${versionghost}-CrearPost`)
+        cy.screenshot(`escenario-1_${versionghost}_4`)
     })
 
         And('Ingresa el titulo del post {string}', (namepost)=>{
             newPost.nameInput(namepost)
-            cy.screenshot(`05-${versionghost}-CrearPost`)
+            cy.screenshot(`escenario-1_${versionghost}_5`)
         })
 
         And('Ingresa la descripcion del post {string}', (textpost)=>{
             newPost.textInput(textpost)
-            cy.screenshot(`06-${versionghost}-CrearPost`)
+            cy.screenshot(`escenario-1_${versionghost}_6`)
         })
 
         And('Hace click en el boton de create post', ()=>{
             newPost.createPostButton()
-            cy.screenshot(`07-${versionghost}-CrearPost`)
+            cy.screenshot(`escenario-1_${versionghost}_7`)
         })
 
         And('Hace click en el boton de publish post', ()=>{
             newPost.publishPostButton()
-            cy.screenshot(`08-${versionghost}-CrearPost`)
+            cy.screenshot(`escenario-1_${versionghost}_8`)
         })
 
         /*And('Hace click en el boton de confirm post', ()=>{
@@ -54,7 +54,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     Then('Validar el mensaje de confirmacion', ()=>{
         newPost.checkMessage()
-        cy.screenshot(`09-${versionghost}-CrearPost`)
+        cy.screenshot(`escenario-1_${versionghost}_9`)
     })
 
 //Verificar un nuevo post
@@ -64,7 +64,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     When('Hace click al post New-Post', ()=>{
         checkPost.postUrl()
-        cy.screenshot(`11-${versionghost}-CrearPost`)
+        cy.screenshot(`escenario-1_${versionghost}_10`)
     })
 
     Then('Validar la url del New-Post', ()=>{

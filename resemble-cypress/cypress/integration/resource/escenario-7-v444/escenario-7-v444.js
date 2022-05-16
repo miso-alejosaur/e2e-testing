@@ -22,100 +22,106 @@ Then('Iniciar Sesion Exitoso', ()=>{
 //Crear post
     When('Hace click en el boton de new post', ()=>{
         newPost.newPostButton()
-        cy.screenshot(`01-${versionghost}-CrearPostPublicaryDespublicar`)
+        cy.screenshot(`escenario-7_${versionghost}_1`)
     })
 
         And('Ingresa el titulo del post {string}', (namepost)=>{
             newPost.nameInput2(namepost)
-            cy.screenshot(`02-${versionghost}-CrearPostPublicaryDespublicar`)
+            cy.screenshot(`escenario-7_${versionghost}_2`)
         })
 
         And('Ingresa la descripcion del post {string}', (textpost)=>{
             newPost.textInput(textpost)
-            cy.screenshot(`03-${versionghost}-CrearPostPublicaryDespublicar`)
+            cy.screenshot(`escenario-7_${versionghost}_3`)
         })
 
         And('Hace click en el boton de create post', ()=>{
             newPost.createPostButton()
-            cy.screenshot(`04-${versionghost}-CrearPostPublicaryDespublicar`)
+            cy.screenshot(`escenario-7_${versionghost}_4`)
         })
 
         And('Hace click en el boton de publish post', ()=>{
             newPost.publishPostButton()
-            cy.screenshot(`05-${versionghost}-CrearPostPublicaryDespublicar`)
+            cy.screenshot(`escenario-7_${versionghost}_5`)
         })
 
         And('Hace click en el boton de confirm post', ()=>{
             newPost.confirmPostButton()
-            cy.screenshot(`06-${versionghost}-CrearPostPublicaryDespublicar`)
+            cy.screenshot(`escenario-7_${versionghost}_6`)
         })
 
     Then('Validar el mensaje de confirmacion', ()=>{
         newPost.checkMessage()
-        cy.screenshot(`07-${versionghost}-CrearPostPublicaryDespublicar`)
+        cy.screenshot(`escenario-7_${versionghost}_7`)
     })
 
 //Verificar un nuevo post
     Given('Ingresar al sitio', ()=>{
         cy.visit(baseUrl)
+        cy.screenshot(`escenario-7_${versionghost}_8`)
     })
 
     When('Hace click al post New-Post', ()=>{
         checkPost.postUrl()
+        cy.screenshot(`escenario-7_${versionghost}_9`)
     })
 
     Then('Validar la url del New-Post', ()=>{
         checkPost.checkUrl()
+        cy.screenshot(`escenario-7_${versionghost}_10`)
     })
 
     Then('Validar titulo del post New-Post', ()=>{
         checkPost.labelTitle()
+        cy.screenshot(`escenario-7_${versionghost}_11`)
     })
 
 //Despublicar el nuevo post
     Given('Ingresar al sitio posts', ()=>{
         cy.wait(500)
         cy.visit('/'+'ghost/#/posts')
-        cy.screenshot(`08-${versionghost}-CrearPostPublicaryDespublicar`)
+        cy.screenshot(`escenario-7_${versionghost}_12`)
     })
 
     When('Hacer en la lista de post', ()=>{
         newPost.labelPost()
-        cy.screenshot(`09-${versionghost}-CrearPostPublicaryDespublicar`)
+        cy.screenshot(`escenario-7_${versionghost}_13`)
     })
 
     And('Hace click en el boton de update post', ()=>{
         newPost.createPostButton()
-        cy.screenshot(`10-${versionghost}-CrearPostPublicaryDespublicar`)
+        cy.screenshot(`escenario-7_${versionghost}_14`)
     })
 
     And('Hace click en la opcion unpublished', ()=>{
         newPost.unpublishedButton()
-        cy.screenshot(`11-${versionghost}-CrearPostPublicaryDespublicar`)
+        cy.screenshot(`escenario-7_${versionghost}_15`)
     })
 
     And('Hace click en el boton update', ()=>{
         newPost.publishPostButton()
-        cy.screenshot(`12-${versionghost}-CrearPostPublicaryDespublicar`)
+        cy.screenshot(`escenario-7_${versionghost}_16`)
     })
     
     Then('Validar mensaje de update', ()=>{
         newPost.checkMessageUpdate()
-        cy.screenshot(`13-${versionghost}-CrearPostPublicaryDespublicar`)
+        cy.screenshot(`escenario-7_${versionghost}_17`)
     })
 
 //Verificar el nuevo post eliminado
     Given('Ingresar al sitio home', ()=>{
         cy.visit(baseUrl)
+        cy.screenshot(`escenario-7_${versionghost}_18`)
     })
 
     When('Ingresar al sitio New-Post despublicado', ()=>{
         cy.visit('/'+'ghost/new-post')
-        cy.screenshot(`14-${versionghost}-CrearPostPublicaryDespublicar`)
+        cy.screenshot(`escenario-7_${versionghost}_19`)
     })
 
     Then('Validar titulo del post New-Post despublicado', ()=>{
         checkPostDelecte.labelTitle()
+        cy.screenshot(`escenario-7_${versionghost}_20`)
     })
 
 //Eliminar el nuevo post

@@ -22,95 +22,95 @@ Then('Iniciar Sesion Exitoso', ()=>{
 //Crear tag
     When('Hace click en el boton de tag', ()=>{
         newTag.tagButton()
-        cy.screenshot(`01-${versionghost}-CrearPostconTag`)
+        cy.screenshot(`escenario-2_${versionghost}_1`)
     })
 
         And('Hace click en el boton de new tag', ()=>{
             newTag.newTagButton()
-            cy.screenshot(`02-${versionghost}-CrearPostconTag`)
+            cy.screenshot(`escenario-2_${versionghost}_2`)
         })
 
         And('Ingresa el nombre del tag {string}', (nametag)=>{
             newTag.nameInput(nametag)
-            cy.screenshot(`03-${versionghost}-CrearPostconTag`)
+            cy.screenshot(`escenario-2_${versionghost}_3`)
         })
 
         And('Ingresa la descripcion del tag {string}', (texttag)=>{
             newTag.descriptionInput(texttag)
-            cy.screenshot(`04-${versionghost}-CrearPostconTag`)
+            cy.screenshot(`escenario-2_${versionghost}_4`)
         })
 
         And('Hace click en el boton de save post', ()=>{
             newTag.saveButton()
-            cy.screenshot(`05-${versionghost}-CrearPostconTag`)
+            cy.screenshot(`escenario-2_${versionghost}_5`)
         })
 
     Then('Validar en la listas de tag el New-tag', ()=>{
         newTag.labelTag()
-        cy.screenshot(`06-${versionghost}-CrearPostconTag`)
+        cy.screenshot(`escenario-2_${versionghost}_6`)
     })
 
 //Crear post
     When('Hace click en el boton de new post', ()=>{
         newPost.newPostButton()
-        cy.screenshot(`07-${versionghost}-CrearPostconTag`)
+        cy.screenshot(`escenario-2_${versionghost}_7`)
     })
 
         And('Ingresa el titulo del post {string}', (namepost)=>{
             newPost.nameInput(namepost)
-            cy.screenshot(`08-${versionghost}-CrearPostconTag`)
+            cy.screenshot(`escenario-2_${versionghost}_8`)
         })
 
         And('Ingresa la descripcion del post {string}', (textpost)=>{
             newPost.textInput(textpost)
-            cy.screenshot(`09-${versionghost}-CrearPostconTag`)
+            cy.screenshot(`escenario-2_${versionghost}_9`)
         })
 
         And('Hacer click en el boton menu del post', ()=>{
             newPost.menuPost()
-            cy.screenshot(`10-${versionghost}-CrearPostconTag`)
+            cy.screenshot(`escenario-2_${versionghost}_10`)
         })
 
         And('Selecionar el {string}', (selecttag)=>{
             newPost.listTag(selecttag)
-            cy.screenshot(`11-${versionghost}-CrearPostconTag`)
+            cy.screenshot(`escenario-2_${versionghost}_11`)
             //newPost.menuPost()
         })
 
         And('Hace click en el boton de create post', ()=>{
             newPost.createPostButton()
-            cy.screenshot(`12-${versionghost}-CrearPostconTag`)
+            cy.screenshot(`escenario-2_${versionghost}_12`)
         })
 
         And('Hace click en el boton de publish post', ()=>{
             newPost.publishPostButton()
-            cy.screenshot(`13-${versionghost}-CrearPostconTag`)
+            cy.screenshot(`escenario-2_${versionghost}_13`)
         })
 
         And('Hace click en el boton de confirm post', ()=>{
             newPost.confirmPostButton()
-            cy.screenshot(`14-${versionghost}-CrearPostconTag`)
+            cy.screenshot(`escenario-2_${versionghost}_14`)
         })
 
     Then('Validar el mensaje de confirmacion', ()=>{
         newPost.checkMessage()
-        cy.screenshot(`15-${versionghost}-CrearPostconTag`)
+        cy.screenshot(`escenario-2_${versionghost}_15`)
     })
 
 //Verificar un nuevo post con el nuevo tag
     Given('Ingresar al sitio', ()=>{
         cy.visit(baseUrl)
-        cy.screenshot(`16-${versionghost}-CrearPostconTag`)
+        cy.screenshot(`escenario-2_${versionghost}_16`)
     })
 
     When('Hace click al post New-Post', ()=>{
         checkTag.postUrl()
-        cy.screenshot(`17-${versionghost}-CrearPostconTag`)
+        cy.screenshot(`escenario-2_${versionghost}_17`)
     })
 
     Then('Validar la url del New-Post', ()=>{
         checkTag.checkUrl()
-        cy.screenshot(`18-${versionghost}-CrearPostconTag`)
+        cy.screenshot(`escenario-2_${versionghost}_18`)
     })
 
     Then('Validar titulo del post New-Post', ()=>{

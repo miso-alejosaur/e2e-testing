@@ -1,6 +1,6 @@
 {
-    "v3Directory": "./screenshots/3.42",
-    "v4Directory": "./screenshots/4.44",
+    "v3Directory": "./screenshots/v342",
+    "v4Directory": "./screenshots/v444",
     "options":{
         "output": {
             "errorColor": {
