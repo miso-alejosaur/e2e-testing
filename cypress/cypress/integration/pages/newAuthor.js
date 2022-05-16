@@ -8,6 +8,7 @@ class newAuthor{
         textName: () => cy.get('#user-name'),
         saveButton: () => cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view'),
         labelTitle: () => cy.get('h2.gh-canvas-title').contains('New Author'),
+        labelTitle2: () => cy.get('h2.gh-canvas-title').contains('New Author 2'),
     }
 
     // Hace click al boton de Members
@@ -40,6 +41,12 @@ class newAuthor{
     labelTitle = () =>{
         cy.wait(500)
         this.elements.labelTitle().should('have.text', '\n                Settings\n                \n                Staff\n                \n                New Author\n\n            ')
+    }
+
+    // Validar nombre del autor modificado 2
+    labelTitle2 = () =>{
+        cy.wait(500)
+        this.elements.labelTitle2().should('have.text', '\n                Settings\n                \n                Staff\n                \n                New Author 2\n\n            ')
     }
 }
 

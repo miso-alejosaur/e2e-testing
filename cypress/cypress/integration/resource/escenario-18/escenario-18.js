@@ -2,8 +2,7 @@ import { Given, When, And, Then } from "cypress-cucumber-preprocessor/steps";
 const loginPage = require('../../pages/loginPage')
 const newTag = require('../../pages/newTag')
 const newPost = require('../../pages/newPost')
-const checkTag = require('../../pages/checkTag')
-const checkPostDelecte = require('../../pages/checkPostDelete')
+const checkTagAdmin = require('../../pages/checkTagAdmin')
 const checkTagDelete = require('../../pages/checkTagDelete')
 
 //Inicio de sesión
@@ -82,21 +81,17 @@ Then('Iniciar Sesion Exitoso', ()=>{
         newPost.checkMessage()
     })
 
-//Verificar un nuevo post con el nuevo tag
-    Given('Ingresar al sitio', ()=>{
+//Verificar el nuevo tag no sea visible
+    Given('Ingresar al sitio home tag', ()=>{
         cy.visit('http://localhost:2368/')
     })
 
-    When('Hace click al post New-Post', ()=>{
-        checkTag.postUrl()
+    When('Ingresar al sitio New-Tag eliminado', ()=>{
+        cy.visit('/'+'tag/hash-new-tag')
     })
 
-    Then('Validar la url del New-Post', ()=>{
-        checkTag.checkUrl()
-    })
-
-    Then('Validar titulo del post New-Post', ()=>{
-        checkTag.labelTitle()
+    Then('Validar titulo del post New-Tag eliminado', ()=>{
+        checkTagDelete.labelTitle()
     })
 
 //Eliminar el nuevo post
@@ -128,7 +123,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 //Eliminar el nuevo tag
     Given('Ingresar al sitio new tag', ()=>{
         cy.wait(500)
-        cy.visit('/'+'#/tags/new-tag')
+        cy.visit('/'+'#/tags/hash-new-tag')
     })
 
     When('Hace click en el boton delete tag', ()=>{
@@ -141,30 +136,4 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     Then('Validar la url tags', ()=>{
         newTag.checkUrl()
-    })
-
-//Verificar un nuevo post eliminado
-    Given('Ingresar al sitio home', ()=>{
-        cy.visit('http://localhost:2368/')
-    })
-
-    When('Ingresar al sitio New-Post eliminado', ()=>{
-        cy.visit('/'+'new-post')
-    })
-
-    Then('Validar titulo del post New-Post eliminado', ()=>{
-        checkPostDelecte.labelTitle()
-    })
-
-//Verificar un nuevo post eliminado
-    Given('Ingresar al sitio home tag', ()=>{
-        cy.visit('http://localhost:2368/')
-    })
-
-    When('Ingresar al sitio New-Tag eliminado', ()=>{
-        cy.visit('/'+'tag/new-tag')
-    })
-
-    Then('Validar titulo del post New-Tag eliminado', ()=>{
-        checkTagDelete.labelTitle()
     })

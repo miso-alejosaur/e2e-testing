@@ -3,7 +3,6 @@ const loginPage = require('../../pages/loginPage')
 const newTag = require('../../pages/newTag')
 const newPost = require('../../pages/newPost')
 const checkTag = require('../../pages/checkTag')
-const checkPostDelecte = require('../../pages/checkPostDelete')
 const checkTagDelete = require('../../pages/checkTagDelete')
 
 //Inicio de sesión
@@ -99,6 +98,37 @@ Then('Iniciar Sesion Exitoso', ()=>{
         checkTag.labelTitle()
     })
 
+//Eliminar el nuevo tag
+    Given('Ingresar al sitio new tag', ()=>{
+        cy.wait(500)
+        cy.visit('/'+'#/tags/new-tag')
+    })
+
+    When('Hace click en el boton delete tag', ()=>{
+        newTag.deleteButton()
+    })
+
+   And('Hace click en el boton confirmar delete', ()=>{
+        newTag.confirmDeleteButton()
+    })
+
+    Then('Validar la url tags', ()=>{
+        newTag.checkUrl()
+    })
+
+//Verificar el nuevo tag no sea visible
+    Given('Ingresar al sitio home tag', ()=>{
+        cy.visit('http://localhost:2368/')
+    })
+
+    When('Ingresar al sitio New-Tag eliminado', ()=>{
+        cy.visit('/'+'tag/new-tag')
+    })
+
+    Then('Validar titulo del post New-Tag eliminado', ()=>{
+        checkTagDelete.labelTitle()
+    })
+
 //Eliminar el nuevo post
     Given('Ingresar al sitio posts', ()=>{
         cy.wait(500)
@@ -123,48 +153,4 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     Then('Validar la url posts', ()=>{
         newPost.checkUrl()
-    })
-
-//Eliminar el nuevo tag
-    Given('Ingresar al sitio new tag', ()=>{
-        cy.wait(500)
-        cy.visit('/'+'#/tags/new-tag')
-    })
-
-    When('Hace click en el boton delete tag', ()=>{
-        newTag.deleteButton()
-    })
-
-   And('Hace click en el boton confirmar delete', ()=>{
-        newTag.confirmDeleteButton()
-    })
-
-    Then('Validar la url tags', ()=>{
-        newTag.checkUrl()
-    })
-
-//Verificar un nuevo post eliminado
-    Given('Ingresar al sitio home', ()=>{
-        cy.visit('http://localhost:2368/')
-    })
-
-    When('Ingresar al sitio New-Post eliminado', ()=>{
-        cy.visit('/'+'new-post')
-    })
-
-    Then('Validar titulo del post New-Post eliminado', ()=>{
-        checkPostDelecte.labelTitle()
-    })
-
-//Verificar un nuevo post eliminado
-    Given('Ingresar al sitio home tag', ()=>{
-        cy.visit('http://localhost:2368/')
-    })
-
-    When('Ingresar al sitio New-Tag eliminado', ()=>{
-        cy.visit('/'+'tag/new-tag')
-    })
-
-    Then('Validar titulo del post New-Tag eliminado', ()=>{
-        checkTagDelete.labelTitle()
     })
