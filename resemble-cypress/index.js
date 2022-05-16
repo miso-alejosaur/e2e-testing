@@ -3,7 +3,7 @@ const config = require("./config.json");
 const fs = require('fs');
 
 
-const { viewportHeight, viewportWidth, options, versionGhost1,versionGhost2,fileSpecVersionGhost1,fileSpecVersionGhost2, scenarios } = config;
+const { scenarios, options  } = config;
 
 const directory1 = `./screenshots/v342/`;
 const directory2 = `./screenshots/v444/`;
