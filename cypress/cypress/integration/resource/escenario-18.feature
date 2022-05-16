@@ -1,7 +1,7 @@
-Feature: Escenario 17: Crear Un Nuevo Tag Interno - Filtrar Segun su Tag como administrador
+Feature: Escenario 18: Crear Un Nuevo Tag Interno - Visualizar Como Usuario
 
-    Feature Crear un tag y flitrar por tag interno visible para el administrador
-    
+    Feature Crear un tag interno y verificar que el usuario no vea el tag interno
+
     Scenario: Crear un nuevo tag
         Given Ingresa a la pagina de inicio de sesion
             When Ingresa el nombre de usuario "test@test.tt" e ingresa la contraseña "1234567890a."
@@ -28,15 +28,6 @@ Feature: Escenario 17: Crear Un Nuevo Tag Interno - Filtrar Segun su Tag como ad
             And Hace click en el boton de publish post
             And Hace click en el boton de confirm post
         Then Validar el mensaje de confirmacion
-
-    Scenario: Filtrar el nuevo post publicado con el nuevo tag
-        Given Ingresa a la pagina de inicio de sesion
-            When Ingresa el nombre de usuario "test@test.tt" e ingresa la contraseña "1234567890a."
-        Then Iniciar Sesion Exitoso
-        
-        Given Ingresar al sitio del posts para realizar el filtro
-            When Hace click al filtro Tag
-        Then Validar titulo del post New-Post  
 
     Scenario: Verificar el nuevo tag no sea visible
         Given Ingresar al sitio home tag

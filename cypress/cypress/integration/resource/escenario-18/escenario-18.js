@@ -81,20 +81,6 @@ Then('Iniciar Sesion Exitoso', ()=>{
         newPost.checkMessage()
     })
 
-//Verificar un nuevo post con el nuevo tag
-    Given('Ingresar al sitio del posts para realizar el filtro', ()=>{
-        cy.wait(500)
-        cy.visit('/'+'#/posts')
-    })
-
-    When('Hace click al filtro Tag', ()=>{
-        checkTagAdmin.filtroTag2()
-    })
-
-    Then('Validar titulo del post New-Post', ()=>{
-        checkTagAdmin.labelTitle()
-    })
-
 //Verificar el nuevo tag no sea visible
     Given('Ingresar al sitio home tag', ()=>{
         cy.visit('http://localhost:2368/')
