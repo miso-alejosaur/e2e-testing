@@ -150,8 +150,9 @@ Verá que comienza la ejecución de las pruebas en Cypress.
 
 ```
 e2e-testing/cypress/cypress/screenshots/resource
+```
 
-# Miembros del equipo
+## Miembros del equipo
 - Alejandro Santamaría Pérez (a.santamaria11@uniandes.edu.co)
 - Andrés Javier Oviedo Morales (a.oviedom@uniandes.edu.co)
 - Steve Andersson Rojas Hernández (s.rojash@uniandes.edu.co)
