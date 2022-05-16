@@ -125,6 +125,9 @@ Esto ejecutará resemble, y creará un reporte con las diferencias encontradas e
 ![imagen](https://user-images.githubusercontent.com/98656893/168519574-3bac86ae-cc2f-40cd-86a0-e14a0fb18aec.png)
 
 # Instrucciones para ejecutar tests - Cypress
+
+[Cypress](https://github.com/miso-alejosaur/e2e-testing/wiki/Instrucciones-VRT-con-Cypress-y-Resemble.js)
+
 ## Instalación - Versión de Ghost
 Para la creación de estos test, se usó la versión 4.42.0 de Ghost; para ejecutar esta versión, ubíquese mediante consola en el directorio donde tenga instalado Ghost, y ejecute los siguientes comandos:
 ```
