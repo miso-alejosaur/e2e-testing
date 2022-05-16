@@ -36,8 +36,12 @@
 
 
 # Instrucciones para ejecutar tests - Kraken
+
+## Prerequisitos
+* Tener instalado Node Version (14.17.0)
+
 ## Instalación - Versión de Ghost
-Para la creación de estos test, se usó la versión 4.42.0 de Ghost; para ejecutar esta versión, ubíquese mediante consola en el directorio donde tenga instalado Ghost, y ejecute los siguientes comandos:
+Para la creación de estos test, se usó la versión 4.44.0 de Ghost; para ejecutar esta versión, ubíquese mediante consola en el directorio donde tenga instalado Ghost, y ejecute los siguientes comandos:
 ```
 ghost uninstall
 ghost install 4.42.0 -local
