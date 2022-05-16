@@ -37,6 +37,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     Then('Validar la url new posts', ()=>{
         newPost.checkUrl()
+        cy.screenshot("1. Crear post")
     })
 
 //Verificar el nuevo post en el Drafs
@@ -46,6 +47,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     Then('Validar titulo del post New-Post Drafts', ()=>{
         checkPostDrafts.labelTitle()
+        cy.screenshot("2. Validar titulo del post New-Post Drafts")
     })
 
 //Eliminar el nuevo post
@@ -72,6 +74,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
     
     Then('Validar la url posts delete', ()=>{
         newPost.checkUrl()
+        cy.screenshot("3. Eliminar post")
     })
 
 //Verificar el nuevo post no este en el Drafs
@@ -81,4 +84,5 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     Then('Validar titulo del post New-Post no este en el Drafts', ()=>{
         checkPostDrafts.labelTitleNot()
+        cy.screenshot("4. Validar titulo del post New-Post no este en el Drafts")
     })

@@ -45,6 +45,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     Then('Validar el mensaje de confirmacion', ()=>{
         newPost.checkMessage()
+        cy.screenshot("1. Crear post")
     })
 
 //Verificar el nuevo tag no sea visible
@@ -58,6 +59,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     Then('Validar titulo del post New-Tag eliminado', ()=>{
         checkTagDelete.labelTitle()
+        cy.screenshot("2. Verificar el nuevo tag no sea visible")
     })
 
 //Crear tag
@@ -83,6 +85,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     Then('Validar en la listas de tag el New-tag', ()=>{
         newTag.labelTag()
+        cy.screenshot("3. Crear tag")
     })
 
 //Modificar post
@@ -114,6 +117,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     Then('Validar la url posts modificada', ()=>{
         newPost.checkMessageUpdated()
+        cy.screenshot("4. Mofificar post")
     })
 
 //Verificar un nuevo post con el nuevo tag
@@ -131,6 +135,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     Then('Validar titulo del post New-Post', ()=>{
         checkTag.labelTitle()
+        cy.screenshot("5. Validar titulo del post New-Post")
     })
 
 //Eliminar el nuevo post
@@ -157,6 +162,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     Then('Validar la url posts', ()=>{
         newPost.checkUrl()
+        cy.screenshot("6. Eliminar post")
     })
 
 //Eliminar el nuevo tag
@@ -175,4 +181,5 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     Then('Validar la url tags', ()=>{
         newTag.checkUrl()
+        cy.screenshot("7. Eliminar tag")
     })

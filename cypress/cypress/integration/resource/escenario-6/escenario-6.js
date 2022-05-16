@@ -42,6 +42,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     Then('Validar en la listas de tag el New-tag', ()=>{
         newTag.labelTag()
+        cy.screenshot("1. Crear tag")
     })
 
 //Crear post
@@ -80,6 +81,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     Then('Validar el mensaje de confirmacion', ()=>{
         newPost.checkMessage()
+        cy.screenshot("2. Crear post")
     })
 
 //Verificar un nuevo post con el nuevo tag
@@ -97,6 +99,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     Then('Validar titulo del post New-Post', ()=>{
         checkTag.labelTitle()
+        cy.screenshot("3. Validar titulo del post New-Post")
     })
 
 //Eliminar el nuevo post
@@ -123,6 +126,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     Then('Validar la url posts', ()=>{
         newPost.checkUrl()
+        cy.screenshot("4. Eliminar post")
     })
 
 //Eliminar el nuevo tag
@@ -141,6 +145,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     Then('Validar la url tags', ()=>{
         newTag.checkUrl()
+        cy.screenshot("5. Eliminar tag")
     })
 
 //Verificar un nuevo post eliminado
@@ -154,9 +159,10 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     Then('Validar titulo del post New-Post eliminado', ()=>{
         checkPostDelecte.labelTitle()
+        cy.screenshot("6. Verificar un nuevo post eliminado")
     })
 
-//Verificar un nuevo post eliminado
+//Verificar un nuevo tag eliminado
     Given('Ingresar al sitio home tag', ()=>{
         cy.visit('http://localhost:2368/')
     })
@@ -167,4 +173,5 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     Then('Validar titulo del post New-Tag eliminado', ()=>{
         checkTagDelete.labelTitle()
+        cy.screenshot("7. Verificar un nuevo tag eliminado")
     })

@@ -44,6 +44,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     Then('Validar el mensaje de confirmacion', ()=>{
         newPost.checkMessage()
+        cy.screenshot("1. Crear post")
     })
 
 //Verificar un nuevo post
@@ -65,6 +66,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     Then('Validar el nombre del New Author', ()=>{
         checkPost.labelAuthor()
+        cy.screenshot("2. Validar el nombre del New Author")
     })
 
 //Modificar nombre Author post
@@ -86,6 +88,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     Then('Validar el nombre del Author', ()=>{
         newAuthor.labelTitle()
+        cy.screenshot("3. Validar el nombre del Author")
     })
 
 //Eliminar el nuevo post
@@ -112,4 +115,5 @@ Then('Iniciar Sesion Exitoso', ()=>{
     
     Then('Validar la url posts', ()=>{
         newPost.checkUrl()
+        cy.screenshot("4. Eliminar post")
     })

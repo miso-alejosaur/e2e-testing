@@ -47,6 +47,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     Then('Validar el mensaje de confirmacion', ()=>{
         newPost.checkMessage2()
+        cy.screenshot("1. Crear post")
     })
 
 //Verificar el nuevo post en el Drafs
@@ -56,6 +57,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     Then('Validar titulo del post New-Post Scheduled', ()=>{
         checkPostScheduled.labelTitle()
+        cy.screenshot("2. Validar titulo del post New-Post Scheduled")
     })
 
 //Publicar el nuevo post
@@ -90,6 +92,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     Then('Validar el mensaje de confirmacion publish', ()=>{
         newPost.checkMessage()
+        cy.screenshot("3. Validar el mensaje de confirmacion publish")
     })
 
 //Verificar el nuevo post no este en el Scheduled
@@ -99,6 +102,7 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     Then('Validar titulo del post New-Post no este en el Scheduled', ()=>{
         checkPostScheduled.labelTitleNot()
+        cy.screenshot("4. Validar titulo del post New-Post no este en el Scheduled")
     })
 
 //Eliminar el nuevo post
@@ -125,4 +129,5 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     Then('Validar la url posts delete', ()=>{
         newPost.checkUrl()
+        cy.screenshot("5. Eliminar post")
     })
