@@ -110,7 +110,7 @@ Una vez node instale todas las dependencias, ejecute el comando
 ```
 node_modules/kraken-node/bin/kraken-node run
 ```
-Verá que comienza la ejecución de las pruebas en Kraken.
+Verá que comienza la ejecución de las pruebas en Kraken. Tras la finalización de la ejecución, verá dentro de la carpeta `screenshots`, los pantallazos tomados por Kraken para cada uno de los pasos, en cada uno de los escenarios.
 
 # Instrucciones para ejecutar tests - Cypress
 ## Instalación - Versión de Ghost
