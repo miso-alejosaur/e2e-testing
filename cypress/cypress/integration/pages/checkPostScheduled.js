@@ -1,16 +1,16 @@
-class checkPostDrafts{
+class checkPostScheduled{
     // Variables para crear post
     
     elements = {
-        draftsButton: () => cy.get('.gh-nav-viewname').contains('Drafts'),
+        scheduledButton: () => cy.get('.gh-nav-viewname').contains('Scheduled'),
         labelTitle: () => cy.get('h3').contains('New-Post'),
         labelTitleNot: () => cy.get('h3').contains('New-Post'),
     }
 
     // Dar clic al boton de Drafts
-    draftsButton = () =>{
+    scheduledButton = () =>{
         cy.wait(500)
-        this.elements.draftsButton().click()
+        this.elements.scheduledButton().click()
     }
 
     // Validar titulo del post 'New-Post'
@@ -26,4 +26,4 @@ class checkPostDrafts{
     }
 }
 
-export default new checkPostDrafts();
+export default new checkPostScheduled();

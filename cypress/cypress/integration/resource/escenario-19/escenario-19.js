@@ -1,10 +1,9 @@
 import { Given, When, And, Then } from "cypress-cucumber-preprocessor/steps";
 const loginPage = require('../../pages/loginPage')
-const newTag = require('../../pages/newTag')
 const newPost = require('../../pages/newPost')
 const checkTag = require('../../pages/checkTag')
-const checkPostDelecte = require('../../pages/checkPostDelete')
 const checkTagDelete = require('../../pages/checkTagDelete')
+const newTag = require('../../pages/newTag')
 
 //Inicio de sesión
 Given('Ingresa a la pagina de inicio de sesion', ()=> {
@@ -18,6 +17,48 @@ Given('Ingresa a la pagina de inicio de sesion', ()=> {
 Then('Iniciar Sesion Exitoso', ()=>{
     loginPage.checkPage()
 })
+
+//Crear post
+    When('Hace click en el boton de new post', ()=>{
+        newPost.newPostButton()
+    })
+
+        And('Ingresa el titulo del post {string}', (namepost)=>{
+            newPost.nameInput(namepost)
+        })
+
+        And('Ingresa la descripcion del post {string}', (textpost)=>{
+            newPost.textInput(textpost)
+        })
+
+        And('Hace click en el boton de create post', ()=>{
+            newPost.createPostButton()
+        })
+
+        And('Hace click en el boton de publish post', ()=>{
+            newPost.publishPostButton()
+        })
+
+        And('Hace click en el boton de confirm post', ()=>{
+            newPost.confirmPostButton()
+        })
+
+    Then('Validar el mensaje de confirmacion', ()=>{
+        newPost.checkMessage()
+    })
+
+//Verificar el nuevo tag no sea visible
+    Given('Ingresar al sitio home tag', ()=>{
+        cy.visit('http://localhost:2368/')
+    })
+
+    When('Ingresar al sitio New-Tag eliminado', ()=>{
+        cy.visit('/'+'tag/new-tag')
+    })
+
+    Then('Validar titulo del post New-Tag eliminado', ()=>{
+        checkTagDelete.labelTitle()
+    })
 
 //Crear tag
     When('Hace click en el boton de tag', ()=>{
@@ -44,17 +85,14 @@ Then('Iniciar Sesion Exitoso', ()=>{
         newTag.labelTag()
     })
 
-//Crear post
-    When('Hace click en el boton de new post', ()=>{
-        newPost.newPostButton()
+//Modificar post
+    When('Ingresar al sitio posts para modificar el post', ()=>{
+        cy.wait(500)
+        cy.visit('/'+'#/posts')
     })
 
-        And('Ingresa el titulo del post {string}', (namepost)=>{
-            newPost.nameInput(namepost)
-        })
-
-        And('Ingresa la descripcion del post {string}', (textpost)=>{
-            newPost.textInput(textpost)
+        And('Hacer click en la lista de post para modificar el post', ()=>{
+            newPost.labelPost()
         })
 
         And('Hacer click en el boton menu del post', ()=>{
@@ -66,20 +104,16 @@ Then('Iniciar Sesion Exitoso', ()=>{
             newPost.menuPost()
         })
 
-        And('Hace click en el boton de create post', ()=>{
+        And('Hace click en el boton para modifcar el post', ()=>{
             newPost.createPostButton()
         })
 
-        And('Hace click en el boton de publish post', ()=>{
+        And('Hace click en el boton de publish post modificado', ()=>{
             newPost.publishPostButton()
         })
 
-        And('Hace click en el boton de confirm post', ()=>{
-            newPost.confirmPostButton()
-        })
-
-    Then('Validar el mensaje de confirmacion', ()=>{
-        newPost.checkMessage()
+    Then('Validar la url posts modificada', ()=>{
+        newPost.checkMessageUpdated()
     })
 
 //Verificar un nuevo post con el nuevo tag
@@ -141,30 +175,4 @@ Then('Iniciar Sesion Exitoso', ()=>{
 
     Then('Validar la url tags', ()=>{
         newTag.checkUrl()
-    })
-
-//Verificar un nuevo post eliminado
-    Given('Ingresar al sitio home', ()=>{
-        cy.visit('http://localhost:2368/')
-    })
-
-    When('Ingresar al sitio New-Post eliminado', ()=>{
-        cy.visit('/'+'new-post')
-    })
-
-    Then('Validar titulo del post New-Post eliminado', ()=>{
-        checkPostDelecte.labelTitle()
-    })
-
-//Verificar un nuevo post eliminado
-    Given('Ingresar al sitio home tag', ()=>{
-        cy.visit('http://localhost:2368/')
-    })
-
-    When('Ingresar al sitio New-Tag eliminado', ()=>{
-        cy.visit('/'+'tag/new-tag')
-    })
-
-    Then('Validar titulo del post New-Tag eliminado', ()=>{
-        checkTagDelete.labelTitle()
     })
