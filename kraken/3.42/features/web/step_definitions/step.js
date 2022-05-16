@@ -14,7 +14,7 @@ When('I login with credentials {kraken-string} {kraken-string}', async function 
     await elementUser.setValue(user);
     let elementPass = await this.driver.$("#ember10");
     await elementPass.setValue(pass);
-    new Promise(r => setTimeout(r, 300))
+    await new Promise(r => setTimeout(r, 300))
     let elementLoginButton = await this.driver.$("#ember12");
     return await elementLoginButton.click();
 });
@@ -34,12 +34,8 @@ When('I create a post with title {kraken-string} and content {kraken-string}', a
 });
 
 When('I post the post', async function () {
-    if(await this.driver.$(".settings-menu-header > .close").isExisting()){
-        let closeButtonDetails = await this.driver.$(".settings-menu-header > .close");
-        await closeButtonDetails.click();
-    }
-    let publishDropdown = await this.driver.$(".ember-basic-dropdown-trigger");
-    await publishDropdown.click();
+    
+    let publishDropdown = await this.driver.$(".gh-publishmenu-trigger");
     await publishDropdown.click();
     let publishButton = await this.driver.$(".gh-publishmenu-button");
     return await publishButton.click();
@@ -62,9 +58,9 @@ When('I schedule the post', async function () {
     let unpublishRadio = await this.driver.$(".//*//div[contains(@class, 'gh-publishmenu-radio')]//*//div[text() = 'Schedule it for later']");
     await unpublishRadio.click();
     let publishButton = await this.driver.$(".gh-publishmenu-footer > .gh-publishmenu-button");
-    await publishButton.click();
-    let modalPublishButton = await this.driver.$(".modal-footer > .gh-btn-black");
-    return await modalPublishButton.click();
+    return await publishButton.click();
+    //let modalPublishButton = await this.driver.$(".modal-footer > .gh-btn-black");
+    //return await modalPublishButton.click();
 });
 
 
@@ -78,17 +74,19 @@ When('I publish the scheduled post', async function () {
     await publishDropdown.click();
     await publishDropdown.click();
     await publishButton.click();
-    let modalPublishButton = await this.driver.$(".modal-footer > .gh-btn-black");
-    return await modalPublishButton.click();
+    await new Promise(r => setTimeout(r, 300))
+    return await publishDropdown.click();
+    //let modalPublishButton = await this.driver.$(".modal-footer > .gh-btn-black");
+    //return await modalPublishButton.click();
 });
 
 When('I publish the post', async function () {
     let publishDropdown = await this.driver.$(".ember-basic-dropdown-trigger");
     await publishDropdown.click();
     let publishButton = await this.driver.$(".gh-publishmenu-footer > .gh-publishmenu-button");
-    await publishButton.click();
-    let publishButtonModal = await this.driver.$(".modal-footer > .gh-btn-black");
-    return await publishButtonModal.click();
+    return await publishButton.click();
+    //let publishButtonModal = await this.driver.$(".modal-footer > .gh-btn-black");
+    //return await publishButtonModal.click();
 });
 
 When('I update the post', async function () {
@@ -167,7 +165,7 @@ When('I create a private tag with name {kraken-string}', async function (name) {
 When('I change the profile name for {kraken-string}', async function (name) {
     let profileName = await this.driver.$("#user-name");
     await profileName.setValue(name);
-    let saveButton = await this.driver.$(".view-actions > .gh-btn-primary");
+    let saveButton = await this.driver.$(".view-actions > .gh-btn-blue");
     return await saveButton.click();
 });
 
@@ -177,7 +175,7 @@ When('I save the tag', async function () {
 });
 
 When('I return to posts list', async function () {
-    let returnButton = await this.driver.$("a.gh-editor-back-button");
+    let returnButton = await this.driver.$(".gh-editor-header > .items-center > div > a");
     return await returnButton.click();
 });
 
@@ -229,8 +227,9 @@ When('I change the post content for {kraken-string}', async function (content) {
 });
 
 When('I delete the post', async function () {
-    let menuButton = await this.driver.$("button.settings-menu-toggle");
+    let menuButton = await this.driver.$("button.post-settings");
     await menuButton.click();
+    await new Promise(r => setTimeout(r, 3000))
     let deleteButton = await this.driver.$("button.settings-menu-delete-button");
     await deleteButton.click();
     let modalButton = await this.driver.$(".modal-content > .modal-footer > .gh-btn-red");
@@ -242,9 +241,9 @@ When('I refresh the site', async function () {
 });
 
 When('I go to profile settings', async function () {
-    let profileCombo = await this.driver.$(".pe-all > .ember-basic-dropdown-trigger");
+    let profileCombo = await this.driver.$(".gh-nav-bottom > .ember-basic-dropdown-trigger");
     await profileCombo.click();
-    let profileButton = await this.driver.$(".//*//ul[contains(@class, 'dropdown-menu')]//*//a[text()[contains(., 'Your profile')]]");
+    let profileButton = await this.driver.$(".//*//ul[contains(@class, 'dropdown-menu')]//*//a[text()[contains(., 'Your Profile')]]");
     return await profileButton.click();
 });
 
