@@ -3,7 +3,7 @@ class newTag{
     
     elements = {
         tagButton: () => cy.get('.ember-viewember-view [href="#/tags/"]'),
-        newTagButton: () => cy.get('[href="#/tags/new/"]'),
+        newTagButton: () => cy.get('[href="#/tags/new/"]').first(),
         nameInput: () => cy.get('[name="name"]'),
         descriptionInput: () => cy.get('[name="description"]'),
         saveButton: () => cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.ember-view'),

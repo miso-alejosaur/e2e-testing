@@ -5,6 +5,7 @@ class checkTagAdmin{
         filtroTag: () => cy.get('.gh-contentfilter-tag > .ember-view > .ember-power-select-selected-item'),
         filtroTagAuthors: () => cy.get('.ember-power-select-selected-item').contains('All authors'),
         selectTag: () => cy.get('.ember-power-select-option').contains('New-Tag'),
+        selectTag2: () => cy.get('.ember-power-select-option').contains('#New-Tag'),
         selectTagAuthors: () => cy.get('.ember-power-select-option').contains('New Author 2'),
         labelTitle: () => cy.get('h3').contains('New-Post'),
     }
@@ -15,6 +16,14 @@ class checkTagAdmin{
         this.elements.filtroTag().click()
         cy.wait(500)
         this.elements.selectTag().click()
+    }
+
+    // Hace click al post 'New-Post' 2
+     filtroTag2 = () =>{
+        cy.wait(1500)
+        this.elements.filtroTag().click()
+        cy.wait(500)
+        this.elements.selectTag2().click()
     }
 
     // Validar titulo del post 'New-Post'
